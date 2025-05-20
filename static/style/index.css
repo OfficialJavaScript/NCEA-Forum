@@ -1,181 +1,40 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    background-color: #FFE8E6;
-    font-family: Calibri, Verdana;
-}
-
-.container {
+.content {
+    margin: auto;
+    background-color: #D6CFB4;
+    width: 75vw;
+    height: 83vh;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
     display: flex;
     flex-direction: column;
 }
 
-.other {
-    background-color: #D6CFB4;
-    background-color: #FCBC2F;
-    background-color: #8D0B41;
-}
-
-.header_top {
-    height: 12vh;
-    background-color: black;
-    display: flex;
-    color: white;
-    width: 100%;
-}
-
-.school_name {
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 1vw;
-    font-size: 3em;
-}
-
-.search_form {
-    margin-left: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-right: 1vw;
-}
-
-.search_input {
-    height: 4.5vh;
-    width: 14vw;
-    padding-top: 0.1vh;
+.introduction {
     text-align: center;
-    font-size: 1.5em;
+    font-size: 2.5em;
+    margin-top: 4vh;
 }
 
-.search_input::placeholder {
-    font-size: 1em;
-    text-align: center;
-    padding-left: 1vw;
-}
-
-.header_image {
-    margin-left: 7vw;
-}
-
-.nav_bar {
-    background-color: #8D0B41;
-    height: 6vh;
-    display: flex;
-}
-
-.nav_buttons {
-    margin-left: .5vw;
-    margin-top: auto;
-    margin-bottom: auto;
-    height: 85%;
-    width: 6vw;
-    background-color: #8D0B41;
-    border: solid black 2px;
-    font-size: 1.4em;
-    color: #FCBC2F;
-}
-
-.nav_login {
-    margin-left: auto;
-}
-
-.nav_signup {
-    margin-right: 1vw;
-}
-
-.nav_account {
-    background-color: #FCBC2F;
-    color: black;
-}
-
-.post_header {
-    background-color: #D6CFB4;
-    height: 17.5vh;
-    width: 90vw;
-    margin-left: auto;
-    margin-right: auto;
+.intro_sub {
     margin-top: 2vh;
-    border: solid black 1px;
+    font-size: 1.75em;
+    text-align: center;
 }
 
-.post_header_title_text {
-    font-weight: 400;
-    margin-left: .5vw;
-    font-size: 2.25em;
-}
-
-.post_header_profile {
-    display: flex;
-    height: 11.6vh;
-    width: 6vw;
-}
-
-.profile_picture {
-    border-radius: 60px;
-    border: solid black 2px;
-}
-
-.margin_auto {
+.content_image {
+    width: 60vw;
     margin: auto;
 }
 
-.post_info_container {
-    display: flex;
-    flex-direction: row;
-    height: 11.6vh;
-}
-
-.post_header_info {
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-.post_header_info_text {
-    font-weight: 400;
-}
-
-.post_info_share {
-    margin-left: auto;
-    margin-right: 1vw;
-    margin-top: auto;
-    margin-bottom: 1vh;
-}
-
-.post_comment {
-    margin-top: 4vh;
-    height: 19vh;
-    display: flex;
-    flex-direction: row;
-}
-
-.post_comment_profile {
-    width: 10%;
-    display: flex;
-    flex-direction: column;
-}
-
-.comment_pfp {
+.content_button {
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: auto;
-    margin-top: 1vh;
+    margin-top: 2vh;
 }
 
-.comment_profile_info {
-    text-align: center;
-    font-weight: 400;
-}
-
-.comment_content {
-    background-color: #D6CFB4;
-    border: solid black 1px;
-    width: 85vw;
-    margin-right: auto;
-}
-
-.comment_text {
-    margin: 1vh;
-    font-weight: 400;
+.content_buttons {
+    width: 6vw;
+    height: 6vh;
+    font-size: 1.4em;
+    background-color: #FCBC2f;
 }

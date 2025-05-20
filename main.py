@@ -9,4 +9,8 @@ app.config['SECRET_KEY'] = os.urandom(32).hex()
 def index():
     return render_template("index.html")
 
+@app.route('/forum')
+def forum():
+    return render_template("forum_example.html")
+
 app.run(host='0.0.0.0', port=80, debug=True)

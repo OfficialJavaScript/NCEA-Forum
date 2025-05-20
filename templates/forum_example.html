@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>NCEA Blog</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}">
+    </head>
+    <body>
+        {% include 'includes/header.html' %}
+        <div class="container">
+            <div class="post_header">
+                <div class="post_header_title">
+                    <h2 class="post_header_title_text">UE Entrance Credits</h2>
+                </div>
+                <div class="post_info_container">
+                    <div class="post_header_profile">
+                        <img src="{{ url_for('static', filename='content/profile.png')}}" height="80%" class="profile_picture margin_auto">
+                    </div>
+                    <div class="post_header_info">
+                        <h2 class="post_header_info_text">By: User</h2>
+                        <h2 class="post_header_info_text">Posted: Yesterday</h2>
+                    </div>
+                    <div class="post_info_share">
+                        <h2 class="post_header_info_text">Share</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="post_comments">
+                <div class="post_comment">
+                    <div class="post_comment_profile">
+                        <img src="{{ url_for('static', filename='content/profile.png')}}" height="50%" class="profile_picture comment_pfp">
+                        <h2 class="comment_profile_info">User</h2>
+                        <h2 class="comment_profile_info">Level 3</h2>
+                    </div>
+                    <div class="comment_content">
+                        <h2 class="comment_text">Hi, I only have 10 writing credits, and no reading credits. For Univesity Entrace, can I use some of my writing credits in place of my reading credits?</h2>
+                    </div>
+                </div>
+                <div class="post_comment">
+                    <div class="post_comment_profile">
+                        <img src="{{ url_for('static', filename='content/profile.png')}}" height="50%" class="profile_picture comment_pfp">
+                        <h2 class="comment_profile_info">Mr User</h2>
+                        <h2 class="comment_profile_info">Educator</h2>
+                    </div>
+                    <div class="comment_content">
+                        <h2 class="comment_text">Hi User...</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include 'includes/footer.html' %}
+    </body>
+</html>

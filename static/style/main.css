@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-color: #FFE8E6;
+    font-family: Calibri, Verdana;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.other {
+    background-color: #D6CFB4;
+    background-color: #FCBC2F;
+    background-color: #8D0B41;
+}
+
+.header_top {
+    height: 12vh;
+    background-color: black;
+    display: flex;
+    color: white;
+    width: 100%;
+}
+
+.school_name {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 1vw;
+    font-size: 3em;
+}
+
+.search_form {
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 1vw;
+}
+
+.search_input {
+    height: 4.5vh;
+    width: 14vw;
+    padding-top: 0.1vh;
+    text-align: center;
+    font-size: 1.5em;
+    background-color: #FFE8E6;
+}
+
+.search_input::placeholder {
+    font-size: 1em;
+    text-align: center;
+    padding-left: 1vw;
+}
+
+.header_image {
+    margin-left: 7vw;
+}
+
+.nav_bar {
+    background-color: #8D0B41;
+    height: 6vh;
+    display: flex;
+}
+
+.nav_buttons {
+    margin-left: .5vw;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 85%;
+    width: 6vw;
+    background-color: #8D0B41;
+    border: solid black 2px;
+    font-size: 1.4em;
+    color: #FCBC2F;
+}
+
+.nav_login {
+    margin-left: auto;
+}
+
+.nav_signup {
+    margin-right: 1vw;
+}
+
+.nav_account {
+    background-color: #FCBC2F;
+    color: black;
+}
+
+.post_header {
+    background-color: #D6CFB4;
+    height: 17.5vh;
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vh;
+    border: solid black 1px;
+}
+
+.post_header_title_text {
+    font-weight: 400;
+    margin-left: .5vw;
+    font-size: 2.25em;
+}
+
+.post_header_profile {
+    display: flex;
+    height: 11.6vh;
+    width: 6vw;
+}
+
+.profile_picture {
+    border-radius: 60px;
+    border: solid black 2px;
+}
+
+.margin_auto {
+    margin: auto;
+}
+
+.post_info_container {
+    display: flex;
+    flex-direction: row;
+    height: 11.6vh;
+}
+
+.post_header_info {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.post_header_info_text {
+    font-weight: 400;
+}
+
+.post_info_share {
+    margin-left: auto;
+    margin-right: 1vw;
+    margin-top: auto;
+    margin-bottom: 1vh;
+}
+
+.post_comments {
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+
+.post_comment {
+    height: 19vh;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 4vh;
+}
+
+.post_comment_profile {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment_pfp {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: 1vh;
+}
+
+.comment_profile_info {
+    text-align: center;
+    font-weight: 400;
+}
+
+.comment_content {
+    background-color: #D6CFB4;
+    border: solid black 1px;
+    width: 85vw;
+    margin-right: auto;
+}
+
+.comment_text {
+    margin: 1vh;
+    font-weight: 400;
+}
+
+footer {
+    background-color: #8D0B41;
+    max-height: 33vh;
+    height: 33vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer_row {
+    margin-top: 4vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer_button {
+    background-color: #FCBC2F;
+    height: 4vh;
+    width: 20vw;
+    font-size: 1.5em;
+    border: solid black 1px;
+}
+
+.footer_button_start {
+    margin-right: 8vw;
+}
+
+.footer_button_end {
+    margin-left: 8vw;
+}
+
+.copyright {
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4vh;
+}

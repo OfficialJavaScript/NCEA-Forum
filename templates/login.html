@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NCEA Forum | Log In</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/accounts.css') }}"> 
+    </head>
+    <body>
+        {% include 'includes/header.html' %}
+        <div class="container">
+            <h2 class="account_header">Log In</h2>
+            <form method="post" action="/login" class="account_form">
+                <input class="account_input" type="text" name="username" placeholder="Username" required>
+                <br>
+                <input class="account_input" type="password" name="password" placeholder="Password" required >
+                <br>
+                <input class="account_submit" type="submit" value="Log In">
+            </form>
+        </div>
+        {% include 'includes/footer.html' %}
+    </body>
+</html>

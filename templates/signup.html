@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NCEA Forum | Sign Up</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/accounts.css') }}"> 
+    </head>
+    <body>
+        {% include 'includes/header.html' %}
+        <form method="post" action="/signup">
+            <input type="text" name="username" placeholder="Username" required>
+            <br>
+            <input type="password" name="password" placeholder="Password" required>
+            <br>
+            <input type="password" name="confirm-password" placeholder="Confirm Password" required>
+            <br>
+            <select required>
+                <option disabled selected>Select a Role</option>
+                <option>Level 1</option>
+                <option>Level 2</option>
+                <option>Level 3</option>
+                <option>Past Student</option>
+                <option>Educator</option>
+            </select>
+            <br>
+            <input type="submit" value="Sign Up">
+        </form>
+        {% include 'includes/footer.html' %}
+    </body>
+</html>

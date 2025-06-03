@@ -1,0 +1,30 @@
+.account_form {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vh;
+}
+
+.account_input {
+    width: 12vw;
+    height: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.account_submit {
+    width: 7vw;
+    height: 3vh;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1em;
+}
+
+.account_header {
+    margin-top: 3vh;
+    text-align: center;
+    font-size: 2em;
+}

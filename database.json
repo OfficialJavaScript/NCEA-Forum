@@ -1,0 +1,34 @@
+{
+    "USERS": [
+        {
+            "ID": "0",
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$dtvjF/Nimm1NU51H3VdhtQ$lWkrs3nxB1hvKE/wmPNbqYWDIEJFfOfIUK86AT5IXi4",
+            "PROFILE": [
+                true,
+                "profiles/0/profile.png"
+            ],
+            "ROLE": "",
+            "USERNAME": "Seb"
+        },
+        {
+            "ID": "1",
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$dtvjF/Nimm1NU51H3VdhtQ$lWkrs3nxB1hvKE/wmPNbqYWDIEJFfOfIUK86AT5IXi4",
+            "PROFILE": [
+                true,
+                "profiles/0/profile.png"
+            ],
+            "ROLE": "",
+            "USERNAME": "Steve"
+        },
+        {
+            "ID": 2,
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$RU0hY1L1eZRc6pZdHVFpIw$c9kvHPp4lLGqcdC/yFYKIAWPAqsYjT+bPplnbe0bWy8",
+            "PROFILE": [
+                false,
+                ""
+            ],
+            "ROLE": null,
+            "USERNAME": "dheeren"
+        }
+    ]
+}

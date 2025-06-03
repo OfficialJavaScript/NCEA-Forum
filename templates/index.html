@@ -9,7 +9,11 @@
         {% include 'includes/header.html' %}
         	<div class="container">
                 <div class="content">
-                    <h2 class="introduction">Welcome to Heretaunga College's NCEA Forum!</h2>
+                    {% if current_user.is_authenticated %}
+                        <h2 class="introduction">Welcome {{ current_user.username }}, to Heretaunga College's NCEA Forum!</h2>
+                    {% else %}
+                        <h2 class="introduction">Welcome to Heretaunga College's NCEA Forum!</h2>
+                    {% endif %}
                     <h3 class="intro_sub">What would you like to do?</h3>
                     <div class="content_button">
                         <button class="content_buttons">Search</button>
@@ -21,3 +25,4 @@
             </div>
         {% include 'includes/footer.html' %}
     </body>
+</html>

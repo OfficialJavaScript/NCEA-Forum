@@ -8,9 +8,16 @@ html {
     font-family: Calibri, Verdana;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
 .container {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .other {
@@ -192,6 +199,7 @@ footer {
     height: 33vh;
     display: flex;
     flex-direction: column;
+    margin-top: auto;
 }
 
 .footer_row {

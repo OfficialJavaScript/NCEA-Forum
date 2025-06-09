@@ -2,8 +2,9 @@
 <html>
     <head>
         <title>NCEA Forum | Log In</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='style/accounts.css') }}"> 
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}">
+        <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
     </head>
     <body>
         {% include 'includes/header.html' %}
@@ -16,6 +17,9 @@
                 <br>
                 <input class="account_submit" type="submit" value="Log In">
             </form>
+            {% if password_error %}
+                <h3 class="error">Username or Password was incorrect.</h3>
+            {% endif %}
         </div>
         {% include 'includes/footer.html' %}
     </body>

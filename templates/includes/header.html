@@ -8,14 +8,18 @@
             </form>
         </div>
         <div class="nav_bar">
-            <button class="nav_buttons">Home</button>
-            <button class="nav_buttons">Level 1</button>
-            <button class="nav_buttons">Level 2</button>
-            <button class="nav_buttons">Level 3</button>
-            <button class="nav_buttons">NCEA</button>
-            <button class="nav_buttons">Forum</button>
-            <button class="nav_buttons nav_account nav_login">Log In</button>
-            <button class="nav_buttons nav_account nav_signup">Sign Up</button>
+            <button class="nav_buttons nav_home" onclick="home()">Home</button>
+            <button class="nav_buttons" onclick="lone()">Level 1</button>
+            <button class="nav_buttons" onclick="ltwo()">Level 2</button>
+            <button class="nav_buttons" onclick="lthree()">Level 3</button>
+            <button class="nav_buttons" onclick="ncea()">NCEA</button>
+            <button class="nav_buttons" onclick="forum()">Forum</button>
+            {% if current_user.is_authenticated %}
+                <button class="nav_buttons nav_account nav_logout" onclick="logout()">Log Out</button>
+            {% else %}
+                <button class="nav_buttons nav_account nav_login" onclick="login()">Log In</button>
+                <button class="nav_buttons nav_account nav_signup" onclick="signup()">Sign Up</button>
+            {% endif %}
         </div>                
     </div>
 </header>

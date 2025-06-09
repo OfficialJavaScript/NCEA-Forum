@@ -28,6 +28,7 @@ def hash(uid):
         data = json.load(database)
         for account in data["USERS"]:
             print(account)
+            print('yes')
             if account["ID"] == uid:
                 return account["PASSWORD"]
         else:

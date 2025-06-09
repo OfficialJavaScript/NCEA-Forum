@@ -1,5 +1,5 @@
 # Developed by Seb
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 import flask_login, argon2, usermanagement
 from flask_login import current_user
 from post_management import *
@@ -28,26 +28,43 @@ def load_user(user_id):
 
 @app.route('/')
 def index():
+    session['password_error'] = False
+    session['already_exists'] = False
     return render_template("index.html")
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if request.method == "POST":
         username = request.form.get("username")
+        print("username: ", username)
         uid = usermanagement.exists(username)
+        print("uid function: ", uid)
         if uid == None:
+            session['password_error'] = True
             return redirect('/login')
         try:
             authentication = password_hasher.verify(usermanagement.hash(uid), request.form.get("password"))
+            print('authentication', authentication)
         except argon2.exceptions.VerifyMismatchError:
+            session['password_error'] = True
             return redirect('/login')
+        print("passed authentication, disabling password error")
+        session['password_error'] = False
+        print("passed, loading user")
         user = load_user(uid)
+        print("try to print user below:")
+        print(user)
         flask_login.login_user(user)
+        print("allegedly logged in, about to return /")
         return redirect('/')
     else:
         if current_user.is_authenticated == True:
             return redirect('/')
-        return render_template("login.html")
+        if 'password_error' in session:
+            if session['password_error'] == True:
+                session['password_error'] = False
+                return render_template("login.html", password_error=True)
+        return render_template("login.html", password_error=False)
     
 @app.route("/signup", methods=['GET', 'POST'])
 def signup():
@@ -55,13 +72,16 @@ def signup():
         username = request.form.get("username")
         exists = usermanagement.exists(username)
         if exists:
+            session['already_exists'] = True
             return redirect("/signup")
-        authentication = password_hasher.verify(password_hasher.hash(request.form.get('confirm-password')), request.form.get('password'))
-        if not authentication:
+        try:
+            password_hasher.verify(password_hasher.hash(request.form.get('confirm-password')), request.form.get('password'))
+        except argon2.exceptions.VerifyMismatchError:
+            session['password_error'] = True
             return redirect("/signup")
         user = {
             "USERNAME": username,
-            "ID": usermanagement.create_user_id(),
+            "ID": str(usermanagement.create_user_id()),
             "PASSWORD": password_hasher.hash(request.form.get("password")),
             "ROLE": request.form.get("role"),
             "PROFILE": [False, ""]
@@ -69,7 +89,16 @@ def signup():
         usermanagement.add_to_database(user)
         return redirect('/')
     else:
-        return render_template("signup.html")    
+        if 'already_exists' in session:
+            if session['already_exists'] == True:
+                session['already_exists'] = False
+                session['password_error'] = False
+                return render_template("signup.html", already_exists=True, password_error=True)
+        if 'password_error' in session:
+            if session['password_error'] == True:
+                session['password_error'] = False
+                return render_template("signup.html", already_exists=False, password_error=True)
+        return render_template("signup.html", already_exists=False, password_error=False)
 
 @app.route("/logout")
 def logout():

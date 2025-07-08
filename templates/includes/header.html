@@ -3,7 +3,7 @@
         <div class="header_top">
             <h1 class="school_name">HERETAUNGA COLLEGE</h1> 
             <img class="header_image" src="{{ url_for('static', filename='content/header.png') }}">
-            <form class="search_form">
+            <form class="search_form" method="post" action="/bread">
                 <input type="search" placeholder="Search"  class="search_input">
             </form>
         </div>

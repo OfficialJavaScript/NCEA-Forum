@@ -7,7 +7,7 @@
                 false,
                 ""
             ],
-            "ROLE": "",
+            "ROLE": "Admin",
             "USERNAME": "Seb"
         },
         {
@@ -29,6 +29,16 @@
             ],
             "ROLE": null,
             "USERNAME": "$@#&^#!*&iamdheeren"
+        },
+        {
+            "ID": "3",
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$iYazNW3EPn9WzWe75Db+8w$DkVBvoIjFqQrt2kjQcA28hG4cyI/04WTtiHqpT95LtQ",
+            "PROFILE": [
+                false,
+                ""
+            ],
+            "ROLE": "Past Student",
+            "USERNAME": "1"
         }
     ]
 }

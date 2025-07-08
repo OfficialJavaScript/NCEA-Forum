@@ -1,12 +1,13 @@
 .content {
     margin: auto;
     background-color: #D6CFB4;
-    width: 75vw;
+    width: 90vw;
     height: 83vh;
     margin-top: 5vh;
     margin-bottom: 5vh;
     display: flex;
     flex-direction: column;
+    border-radius: 10px;
 }
 
 .introduction {
@@ -37,4 +38,6 @@
     height: 6vh;
     font-size: 1.4em;
     background-color: #FCBC2f;
+    border-radius: 5px;
+    border: solid 2px;
 }

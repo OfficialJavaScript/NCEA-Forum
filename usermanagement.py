@@ -27,9 +27,16 @@ def hash(uid):
     with open("database.json", 'r') as database:
         data = json.load(database)
         for account in data["USERS"]:
-            print(account)
-            print('yes')
             if account["ID"] == uid:
                 return account["PASSWORD"]
+        else:
+            return None
+
+def role(uid):
+    with open('database.json', 'r') as database:
+        data = json.load(database)
+        for account in data["USERS"]:
+            if account["ID"] == uid:
+                return account["ROLE"]
         else:
             return None

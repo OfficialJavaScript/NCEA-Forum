@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NCEA Forum | Forum</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/forum.css') }}">
+        <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+    </head>
+    <body>
+        {% include 'includes/header.html' %}
+        <div class="container">
+            <div class="forum_wrapper">
+                <div class="top_header">
+                    <h1 class="title">Forum</h1>
+                    <button class="createpstbtn" onclick="create_post()">Create Post</button>
+                </div>
+                <div class="forum_posts">
+                    <div class="post_wrapper">
+                        <div class="post_info">
+                            <div class="post_top_home">
+                                <a class="post_title" href="forum/topic/levelone"><h2>Level 1</h2></a>
+                            </div>
+                        </div>
+                        <div class="post_total_comments">
+                            <h2 class="post_total_comment">{{ post_total["levelone"] }} Post(s)</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum_posts">
+                    <div class="post_wrapper">
+                        <div class="post_info">
+                            <div class="post_top_home">
+                                <a class="post_title" href="forum/topic/leveltwo"><h2>Level 2</h2></a>
+                            </div>
+                        </div>
+                        <div class="post_total_comments">
+                            <h2 class="post_total_comment">{{ post_total["leveltwo"] }} Post(s)</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum_posts">
+                    <div class="post_wrapper">
+                        <div class="post_info">
+                            <div class="post_top_home">
+                                <a class="post_title" href="forum/topic/levelthree"><h2>Level 3</h2></a>
+                            </div>
+                        </div>
+                        <div class="post_total_comments">
+                            <h2 class="post_total_comment">{{ post_total["levelthree"] }} Post(s)</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum_posts">
+                    <div class="post_wrapper">
+                        <div class="post_info">
+                            <div class="post_top_home">
+                                <a class="post_title" href="forum/topic/caas"><h2>CAAs</h2></a>
+                            </div>
+                        </div>
+                        <div class="post_total_comments">
+                            <h2 class="post_total_comment">{{ post_total["caas"] }} Post(s)</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum_posts">
+                    <div class="post_wrapper">
+                        <div class="post_info">
+                            <div class="post_top_home">
+                                <a class="post_title" href="forum/topic/endorsement"><h2>Endorsement</h2></a>
+                            </div>
+                        </div>
+                        <div class="post_total_comments">
+                            <h2 class="post_total_comment">{{ post_total["endorsement"] }} Post(s)</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum_posts">
+                    <div class="post_wrapper">
+                        <div class="post_info">
+                            <div class="post_top_home">
+                                <a class="post_title" href="forum/topic/exams"><h2>Exams</h2></a>
+                            </div>
+                        </div>
+                        <div class="post_total_comments">
+                            <h2 class="post_total_comment">{{ post_total["exams"] }} Post(s)</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum_posts">
+                    <div class="post_wrapper">
+                        <div class="post_info">
+                            <div class="post_top_home">
+                                <a class="post_title" href="forum/topic/extensions"><h2>Extensions</h2></a>
+                            </div>
+                        </div>
+                        <div class="post_total_comments">
+                            <h2 class="post_total_comment">{{ post_total["extensions"] }} Post(s)</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum_posts">
+                    <div class="post_wrapper">
+                        <div class="post_info">
+                            <div class="post_top_home">
+                                <a class="post_title" href="forum/topic/external"><h2>External</h2></a>
+                            </div>
+                        </div>
+                        <div class="post_total_comments">
+                            <h2 class="post_total_comment">{{ post_total["external"] }} Post(s)</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum_posts">
+                    <div class="post_wrapper">
+                        <div class="post_info">
+                            <div class="post_top_home">
+                                <a class="post_title" href="forum/topic/internal"><h2>Internal</h2></a>
+                            </div>
+                        </div>
+                        <div class="post_total_comments">
+                            <h2 class="post_total_comment">{{ post_total["internal"] }} Post(s)</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum_posts">
+                    <div class="post_wrapper">
+                        <div class="post_info">
+                            <div class="post_top_home">
+                                <a class="post_title" href="forum/topic/nceaportal"><h2>NCEA Portal</h2></a>
+                            </div>
+                        </div>
+                        <div class="post_total_comments">
+                            <h2 class="post_total_comment">{{ post_total["nceaportal"] }} Post(s)</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum_posts">
+                    <div class="post_wrapper">
+                        <div class="post_info">
+                            <div class="post_top_home">
+                                <a class="post_title" href="forum/topic/plagiarism"><h2>Plagiarism</h2></a>
+                            </div>
+                        </div>
+                        <div class="post_total_comments">
+                            <h2 class="post_total_comment">{{ post_total["plagiarism"] }} Post(s)</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum_posts">
+                    <div class="post_wrapper">
+                        <div class="post_info">
+                            <div class="post_top_home">
+                                <a class="post_title" href="forum/topic/schoolleavers"><h2>School Leavers</h2></a>
+                            </div>
+                        </div>
+                        <div class="post_total_comments">
+                            <h2 class="post_total_comment">{{ post_total["schoolleavers"] }} Post(s)</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum_posts">
+                    <div class="post_wrapper">
+                        <div class="post_info">
+                            <div class="post_top_home">
+                                <a class="post_title" href="forum/topic/sickness"><h2>Sickness</h2></a>
+                            </div>
+                        </div>
+                        <div class="post_total_comments">
+                            <h2 class="post_total_comment">{{ post_total["sickness"] }} Post(s)</h2>
+                        </div>
+                    </div>
+                </div>             
+                <div class="forum_posts">
+                    <div class="post_wrapper">
+                        <div class="post_info">
+                            <div class="post_top_home">
+                                <a class="post_title" href="forum/topic/tipsandtricks"><h2>Tips and tricks</h2></a>
+                            </div>
+                        </div>
+                        <div class="post_total_comments">
+                            <h2 class="post_total_comment">{{ post_total["tipsandtricks"] }} Post(s)</h2>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <br>
+            </div>
+        </div>
+        {% include 'includes/footer.html' %}
+    </body>
+</html>

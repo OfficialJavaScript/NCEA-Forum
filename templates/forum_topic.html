@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NCEA Forum | Forum</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/forum.css') }}">
+        <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+    </head>
+    <body>
+        {% include 'includes/header.html' %}
+        <div class="container">
+            <div class="forum_wrapper">
+                <div class="top_header">
+                    <h1 class="title">Forum</h1>
+                    <button class="createpstbtn" onclick="create_post()">Create Post</button>
+                </div>
+                <div class="forum_posts">
+                    {% for topic in topics %}
+                    <div class="post_wrapper">
+                        <div class="post_info">
+                            <div class="post_top">
+                                <a class="post_title" href="/forum/{{ topic['id'] }}"><h2>{{ topic["title"] }}</h2></a>
+                            </div>
+                            <div class="post_bottom">
+                                <h2 class="post_user">By <a href="google.com" class="post_user_link">{{ topic["user"][0] }}</a> | 10th June 2025</h2>
+                            </div>
+                        </div>
+                        <div class="post_total_comments">
+                            <h2 class="post_total_comment">Replies: {{ topic["comments"] }}</h2>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <br>
+                </div>
+                <br>
+            </div>
+        </div>
+        {% include 'includes/footer.html' %}
+    </body>
+</html>

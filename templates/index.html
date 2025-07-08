@@ -18,8 +18,10 @@
                     <h3 class="intro_sub">What would you like to do?</h3>
                     <div class="content_button">
                         <button class="content_buttons" onclick="search()">Search</button>
+                        {% if not current_user.is_authenticated %}
                         <button class="content_buttons" onclick="login()">Log In</button>
                         <button class="content_buttons" onclick="signup()">Sign Up</button>
+                        {% endif %}
                     </div>
                     <img class="content_image" src="{{ url_for('static', filename='content/home_content.png' )}}">
                 </div>

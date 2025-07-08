@@ -33,3 +33,7 @@ function logout() {
 function search() {
     location.href = "/search"
 }
+
+function create_post() {
+    location.href = "/forum/create_post"
+}

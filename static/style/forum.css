@@ -1,0 +1,144 @@
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2vh;
+}
+
+.forum_create_header {
+    margin-top: 3vh;
+    text-align: center;
+    font-size: 2em;
+}
+
+.forum_wrapper {
+    background-color: #D6CFB4;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    width: 90vw;
+    min-height: 70vh;
+    border-radius: 10px;
+    flex-direction: column;
+}
+
+.post_create_submit {
+    width: 10vw;
+    height: 3vh;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1em;
+}
+
+.title {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.top_header {
+    width: 100%;
+    display: flex;
+}
+
+.post_title,
+.post_user {
+    margin-left: 1vh;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.post_user {
+    color: gray;
+}
+
+.post_wrapper {
+    height: 8.2vh;
+    display: flex
+}
+
+.post_top,
+.post_bottom {
+    height: 50%;
+    width: 65vw;
+    display: flex;
+}
+
+.post_top_home {
+    height: 100%;
+    width: 65vw;
+    display: flex;
+}
+
+.post_total_comments {
+    width: 30vw;
+    display: flex;
+}
+
+.post_total_comment {
+    margin-bottom: auto;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: 1vw;
+}
+
+.post_wrapper {
+    border-top: solid black 2px;
+}
+
+hr {
+    height: 2px;
+    background-color: black;
+    border: none;
+}
+
+.post_title {
+    color: black;
+}
+
+.post_user_link {
+    color: gray;
+}
+
+.post_create_input {
+    margin-left: auto;
+    margin-right: auto;
+    width: 25vw;
+    height: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.post_select_input {
+    margin-left: auto;
+    margin-right: auto;
+    width: 15vw;
+    height: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.post_createta_input {
+    width: 35vw;
+    height: 12.5vh;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.7em;
+}
+
+.createpstbtn {
+    position: absolute;
+    margin-left: 79vw;
+    height: 4.5vh;
+    width: 10vw;
+    margin-top: 0.54vh;
+    background-color: #8D0B41;
+    border: solid black 2px;
+    font-size: 1.4em;
+    color: #FCBC2F;
+    border-radius: 5px;
+}

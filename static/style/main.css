@@ -17,7 +17,6 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    height: 100%;
 }
 
 .other {
@@ -55,6 +54,7 @@ body {
     text-align: center;
     font-size: 1.5em;
     background-color: #FFE8E6;
+    border-radius: 5px;
 }
 
 .search_input::placeholder {
@@ -83,6 +83,7 @@ body {
     border: solid black 2px;
     font-size: 1.4em;
     color: #FCBC2F;
+    border-radius: 5px;
 }
 
 .nav_home {
@@ -223,6 +224,7 @@ footer {
     width: 20vw;
     font-size: 1.5em;
     border: solid black 1px;
+    border-radius: 5px;
 }
 
 .footer_button_start {
@@ -238,6 +240,7 @@ footer {
     margin-left: auto;
     margin-right: auto;
     margin-top: 4vh;
+    margin-bottom: 2vh;
 }
 
 .error {

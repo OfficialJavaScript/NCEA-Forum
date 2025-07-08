@@ -9,6 +9,9 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(32).hex()
 login_manager = flask_login.LoginManager(app)
 password_hasher = argon2.PasswordHasher()
+ROLES = ["1", "2", "3", "4", "5"]
+ROLE_NAME = ["Level 1", "Level 2", "Level 3", "Past Student", "Educator"]
+TOPICS = ['levelone', 'leveltwo', 'levelthree', 'caas', 'endorsement', 'exams', 'extensions', 'external', 'internal', 'nceaportal', 'plagiarism', 'schoolleavers', 'sickness', 'tipsandtricks']
 
 class User(flask_login.UserMixin):
     def __init__(self):
@@ -79,11 +82,16 @@ def signup():
         except argon2.exceptions.VerifyMismatchError:
             session['password_error'] = True
             return redirect("/signup")
+        print("running role check, current role: ", request.form.get("role"))
+        if request.form.get("role") not in ROLES:
+            return redirect("/signup")
+        user_role = ROLE_NAME[ROLES.index(request.form.get("role"))]
+        print("user's role: ", user_role)
         user = {
             "USERNAME": username,
             "ID": str(usermanagement.create_user_id()),
             "PASSWORD": password_hasher.hash(request.form.get("password")),
-            "ROLE": request.form.get("role"),
+            "ROLE": user_role,
             "PROFILE": [False, ""]
         }
         usermanagement.add_to_database(user)
@@ -104,16 +112,48 @@ def signup():
 def logout():
     if current_user.is_authenticated == False:
         return redirect('/')
-    #change the error's to false here...
     flask_login.logout_user()
     return redirect('/')
 
 @app.route('/forum')
-def forum_test():
+def forum():
+    return render_template("forum_home.html", post_total=topic_total_posts())
+
+@app.route('/forum_example')
+def forum_example():
     return render_template("forum_example.html")
 
+@app.route('/forum/create_post', methods=['GET', 'POST'])
+def create_post():
+    if request.method == "POST":
+        if current_user.is_authenticated == True:
+            if request.form.get("topic").lower() not in TOPICS:
+                return redirect("/forum/create_post")
+            post_info = {
+                "title": request.form.get("title"),
+                "comment": request.form.get("comment"),
+                "user": [current_user.username, current_user.id, usermanagement.role(current_user.id)],
+                "id": "",
+                "topic": [f"{request.form.get("topic")}"]
+            }
+            write_post(post_info)
+            return redirect('/forum')
+        return redirect('/login')
+    else:
+        if current_user.is_authenticated == True:
+            return render_template("create_post.html")
+        return redirect("/login")
+
+@app.route('/forum/topic/<topic>')
+def forum_topic(topic):
+    topic = topic.lower()
+    if topic not in TOPICS:
+        return redirect('/forum')
+    print(topic)
+    return render_template("forum_topic.html", topics=load_topic_posts(topic))
+
 @app.route('/forum/<id>')
-def forum(id):
+def forum_post(id):
     content = post_information("forum", id)
     comments = []
     if content[0] == "forum":

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NCEA Forum | Log In</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/verify.css') }}">
+        <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+    </head>
+    <body>
+        {% include 'includes/header.html' %}
+            <div class="container">
+                <div class="wrapper">
+                    {% if confirmed %}
+                        <h1 class="header">Your account has been confirmed, if you logged in before, you must re-log in.</h1>
+                        <br>
+                        <button class="login_button" onclick="login()">Log In</button>
+                    {% else %}
+                        <h1 class="header">A code has been sent to your email, please enter the code below:</h1>
+                        <br>
+                        <form method="post" action="/verify" class="verify_form">
+                            <input type="text" name="code" placeholder="Enter Code" required class="form_content verify_input">
+                            <br>
+                            <input type="submit" value="Submit" class="form_content verify_submit">
+                        </form>
+                        {% if failed %}
+                            <h2 class="error">The code you have entered is incorrect</h2>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            </div>
+        {% include 'includes/footer.html' %}
+    </body>
+</html>

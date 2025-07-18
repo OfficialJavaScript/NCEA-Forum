@@ -1,7 +1,13 @@
 {
-    "title": "Failing",
     "comment": "The whole class is failing right now, you better do better.",
-    "user": ["Mrs Leota", 0, "Teacher"],
+    "id": "1",
+    "title": "Failing",
+    "topic": ["internal"],
+    "user": [
+        "Mrs Leota",
+        0,
+        "Teacher"
+    ],
     "images": "",
     "date": "Now"
 }

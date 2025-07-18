@@ -1,0 +1,33 @@
+{
+    "caas": [],
+    "endorsement": [],
+    "exams": [],
+    "extensions": [],
+    "external": [],
+    "internal": [
+        "2"
+    ],
+    "levelone": [
+        4,
+        7
+    ],
+    "levelthree": [
+        "1",
+        "3",
+        10
+    ],
+    "leveltwo": [],
+    "nceaportal": [
+        6
+    ],
+    "plagiarism": [],
+    "schoolleavers": [
+        9
+    ],
+    "sickness": [
+        5
+    ],
+    "tipsandtricks": [
+        8
+    ]
+}

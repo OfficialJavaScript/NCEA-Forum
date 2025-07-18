@@ -1,7 +1,11 @@
 {
     "USERS": [
         {
+            "CONFIRM_CODE": "",
+            "CONFIRM_STATUS": "Confirmed",
+            "EMAIL": "sebastian.johnstone@heretaunga.school.nz",
             "ID": "0",
+            "LOGIN_COUNT": 2,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$dtvjF/Nimm1NU51H3VdhtQ$lWkrs3nxB1hvKE/wmPNbqYWDIEJFfOfIUK86AT5IXi4",
             "PROFILE": [
                 false,
@@ -11,7 +15,11 @@
             "USERNAME": "Seb"
         },
         {
+            "CONFIRM_CODE": "",
+            "CONFIRM_STATUS": "Confirmed",
+            "EMAIL": "sebastian.johnstone@heretaunga.school.nz",
             "ID": "1",
+            "LOGIN_COUNT": 0,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$dtvjF/Nimm1NU51H3VdhtQ$lWkrs3nxB1hvKE/wmPNbqYWDIEJFfOfIUK86AT5IXi4",
             "PROFILE": [
                 false,
@@ -21,7 +29,11 @@
             "USERNAME": "Steve"
         },
         {
+            "CONFIRM_CODE": "",
+            "CONFIRM_STATUS": "Confirmed",
+            "EMAIL": "dheeren.nouthalapati@heretaunga.school.nz",
             "ID": "2",
+            "LOGIN_COUNT": 0,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$xRSqAq2gbRHkz3VJe/QxTg$wG4ikvmJxaAKhZ85jRigVvLfEX2eWMM4XcwIuHyQhaQ",
             "PROFILE": [
                 false,
@@ -31,7 +43,11 @@
             "USERNAME": "$@#&^#!*&iamdheeren"
         },
         {
+            "CONFIRM_CODE": "",
+            "CONFIRM_STATUS": "Confirmed",
+            "EMAIL": "sebastian.johnstone@heretaunga.school.nz",
             "ID": "3",
+            "LOGIN_COUNT": 0,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$iYazNW3EPn9WzWe75Db+8w$DkVBvoIjFqQrt2kjQcA28hG4cyI/04WTtiHqpT95LtQ",
             "PROFILE": [
                 false,
@@ -39,6 +55,62 @@
             ],
             "ROLE": "Past Student",
             "USERNAME": "1"
+        },
+        {
+            "CONFIRM_CODE": "",
+            "CONFIRM_STATUS": "Confirmed",
+            "EMAIL": "sebastian.johnstone@heretaunga.school.nz",
+            "ID": "4",
+            "LOGIN_COUNT": 0,
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$Eo/aXJh5272pxcYSbjUIog$GXobzVRn013of3xtyoeeC65KV48w+NZbsmPb/A7Ety4",
+            "PROFILE": [
+                false,
+                ""
+            ],
+            "ROLE": "Level 3",
+            "USERNAME": "Sebastian Johnstone"
+        },
+        {
+            "CONFIRM_CODE": "",
+            "CONFIRM_STATUS": "Confirmed",
+            "EMAIL": "sebastian.johnstone@heretaunga.school.nz",
+            "ID": "5",
+            "LOGIN_COUNT": 0,
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$P93RK9l5QR8V2spYSkSJFA$XIOvbjNXF/e4m5UMJjEc0Fvv7ykhBCLwHFdpGJ3pJx0",
+            "PROFILE": [
+                false,
+                ""
+            ],
+            "ROLE": "Level 3",
+            "USERNAME": "sebjohnstone"
+        },
+        {
+            "CONFIRM_CODE": "",
+            "CONFIRM_STATUS": "Confirmed",
+            "EMAIL": "dheeren.nouthalapati@heretaunga.school.nz",
+            "ID": "6",
+            "LOGIN_COUNT": 2,
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$I1dc64g8Qj7OYnfURxmBRg$Mb3T5RSnDBexyfFmIiqqjpdoU6tYCkhogLDPQjDOw/Y",
+            "PROFILE": [
+                false,
+                ""
+            ],
+            "ROLE": "Level 2",
+            "USERNAME": "Dheeren Chowdary Nouthalapati"
+        },
+        {
+            "CONFIRM_CODE": "",
+            "CONFIRM_STATUS": "Confirmed",
+            "EMAIL": "leotar@heretaunga.school.nz",
+            "ID": "7",
+            "LOGIN_COUNT": 1,
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$5oW+gKbS9AiUZszEnCcrYw$FS5uAF5C1AqaxgU4e8COREHSfQYJ6vGDezah+9XCJ4c",
+            "PROFILE": [
+                false,
+                ""
+            ],
+            "ROLE": "Level 3",
+            "USERNAME": "Leotar"
         }
     ]
 }

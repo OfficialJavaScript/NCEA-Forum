@@ -54,6 +54,7 @@ body {
     text-align: center;
     font-size: 1.5em;
     background-color: #FFE8E6;
+    border: solid 3px gray;
     border-radius: 5px;
 }
 
@@ -84,6 +85,7 @@ body {
     font-size: 1.4em;
     color: #FCBC2F;
     border-radius: 5px;
+    border-color: #cf105f;
 }
 
 .nav_home {
@@ -92,15 +94,18 @@ body {
 
 .nav_login {
     margin-left: auto;
+    border-color: #dd9903;
 }
 
 .nav_signup {
     margin-right: 1vw;
+    border-color: #dd9903;
 }
 
 .nav_logout {
     margin-left: auto;
     margin-right: 1vw;
+    border-color: #dd9903;
 }
 
 .nav_account {
@@ -225,6 +230,7 @@ footer {
     font-size: 1.5em;
     border: solid black 1px;
     border-radius: 5px;
+    border: solid #dd9903 3px;
 }
 
 .footer_button_start {

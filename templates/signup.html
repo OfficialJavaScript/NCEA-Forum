@@ -11,6 +11,8 @@
         <div class="container {% if already_exists or password_error %} container_mod {% endif %}">
             <h2 class="account_header">Sign Up</h2>
             <form method="post" action="/signup" class="account_form">
+                <input type="email" name="email" placeholder="Email" class="account_input" required>
+                <br>
                 <input type="text" name="username" placeholder="Username" class="account_input" required>
                 <br>
                 <input type="password" name="password" placeholder="Password" class="account_input" required>
@@ -32,6 +34,7 @@
                 {% elif password_error %}
                     <h3 class="error">Passwords do not match.</h3>
                 {% endif %}
+                <br>
             </form>
         </div>
         {% include 'includes/footer.html' %}

@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect, session
 import flask_login, argon2, usermanagement
 from flask_login import current_user
 from post_management import *
+from mailer import *
 import os
 
 app = Flask(__name__)
@@ -39,26 +40,30 @@ def index():
 def login():
     if request.method == "POST":
         username = request.form.get("username")
-        print("username: ", username)
         uid = usermanagement.exists(username)
-        print("uid function: ", uid)
         if uid == None:
             session['password_error'] = True
             return redirect('/login')
         try:
             authentication = password_hasher.verify(usermanagement.hash(uid), request.form.get("password"))
-            print('authentication', authentication)
         except argon2.exceptions.VerifyMismatchError:
             session['password_error'] = True
             return redirect('/login')
-        print("passed authentication, disabling password error")
         session['password_error'] = False
-        print("passed, loading user")
+        verify_status = usermanagement.check_verification(uid)
+        if verify_status == "Unconfirmed":
+            session['verify_status'] = uid
+            return redirect('/verify')
+        verify_count = usermanagement.check_vcount(uid)
+        if verify_count == "Reconfirm":
+            session['verify_status'] = uid
+            code = usermanagement.create_code()
+            usermanagement.update_verification(uid, "Unconfirmed", code)
+            verify_email(usermanagement.get_email(uid), usermanagement.read_name(uid), uid, "Reverify Account", code)
+            return redirect('/verify')
+        usermanagement.update_vcount(uid, "add")
         user = load_user(uid)
-        print("try to print user below:")
-        print(user)
         flask_login.login_user(user)
-        print("allegedly logged in, about to return /")
         return redirect('/')
     else:
         if current_user.is_authenticated == True:
@@ -82,20 +87,26 @@ def signup():
         except argon2.exceptions.VerifyMismatchError:
             session['password_error'] = True
             return redirect("/signup")
-        print("running role check, current role: ", request.form.get("role"))
         if request.form.get("role") not in ROLES:
             return redirect("/signup")
         user_role = ROLE_NAME[ROLES.index(request.form.get("role"))]
-        print("user's role: ", user_role)
+        user_id = str(usermanagement.create_user_id())
+        code = usermanagement.create_code()
+        verify_email(request.form.get("email"), username, user_id, "New Account", code)
         user = {
+            "EMAIL": request.form.get("email"),
             "USERNAME": username,
-            "ID": str(usermanagement.create_user_id()),
+            "ID": user_id,
             "PASSWORD": password_hasher.hash(request.form.get("password")),
             "ROLE": user_role,
-            "PROFILE": [False, ""]
+            "PROFILE": [False, ""],
+            "CONFIRM_STATUS": "Unconfirmed",
+            "CONFIRM_CODE": code,
+            "LOGIN_COUNT": 0
         }
         usermanagement.add_to_database(user)
-        return redirect('/')
+        session['verify_status'] = user_id
+        return redirect('/verify')
     else:
         if 'already_exists' in session:
             if session['already_exists'] == True:
@@ -114,6 +125,44 @@ def logout():
         return redirect('/')
     flask_login.logout_user()
     return redirect('/')
+
+@app.route("/verify", methods=['GET', 'POST'])
+def verify():
+    if request.method == "POST":
+        if 'verify_status' not in session:
+            return redirect('/login')
+        if session['verify_status'] == None:
+            return redirect('/login')
+        code = request.form.get("code")
+        if usermanagement.compare_verification(session["verify_status"], code):
+            user_list = usermanagement.check_vcount(session["verify_status"])
+            if user_list == "Reconfirm":
+                usermanagement.update_vcount(session["verify_status"], "remove")
+            usermanagement.update_verification(session["verify_status"], "Confirmed", "")
+            session['verify_status'] = None
+            return render_template("verify.html", confirmed=True, failed=False)
+        else:
+            return render_template("verify.html", confirmed=False, failed=True)
+    else:
+        param = request.args.get("code")
+        if param == None or param == "":
+            if 'verify_status' in session:
+                if session['verify_status'] == None:
+                    return redirect('/login')
+                return render_template("verify.html", confirmed=False, failed=False)
+            else:
+                return redirect("/login")
+        else:
+            user_list = usermanagement.decode_user(param)
+            if usermanagement.compare_verification(user_list[0], user_list[1]):
+                if user_list[2] == "Reverify Account":
+                    usermanagement.update_vcount(user_list[0], "remove")
+                usermanagement.update_verification(user_list[0], "Confirmed", "")
+                session['verify_status'] = None
+                return render_template("verify.html", confirmed=True, failed=False)
+            else:
+                session['verify_status'] = user_list[0]
+                return render_template("verify.html", confirmed=False, failed=True)
 
 @app.route('/forum')
 def forum():
@@ -149,7 +198,6 @@ def forum_topic(topic):
     topic = topic.lower()
     if topic not in TOPICS:
         return redirect('/forum')
-    print(topic)
     return render_template("forum_topic.html", topics=load_topic_posts(topic))
 
 @app.route('/forum/<id>')

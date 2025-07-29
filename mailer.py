@@ -4,7 +4,7 @@ from email.mime.text import MIMEText
 from email.utils import formataddr
 from usermanagement import encode_user
 
-def verify_email(receiver_email, name, uid, authentication_type, verification):
+def verify_email(receiver_email, name, uid, authentication_type, verification, domain):
     sender_email = "heretaungacollegeforum@sebj.nz"
     sender_name = "Heretaunga College Forum"
     password = str("mcvG8EhPwHz9") 
@@ -27,7 +27,7 @@ def verify_email(receiver_email, name, uid, authentication_type, verification):
         context = "Your account needs to be verified for security reasons."
         verification_encoded = encode_user(uid, verification, "Reverify Account")
     
-    text = f"Welcome {name}, to Heretaunga College's Forum!\n\nYour account has been created, but you need to verify it.\n\nEither visit http://localhost/verify?code={verification_encoded}, or on your next login, use this code: {verification}\n\nIf you didn't sign up for an account, then you can safely delete this email."
+    text = f"Welcome {name}, to Heretaunga College's Forum!\n\nYour account has been created, but you need to verify it.\n\nEither visit http://{domain}/{verification_encoded}, or on your next login, use this code: {verification}\n\nIf you didn't sign up for an account, then you can safely delete this email."
 
     html = f"""
     <html>
@@ -103,7 +103,7 @@ def verify_email(receiver_email, name, uid, authentication_type, verification):
                     <br>
                     <h2 class="content_text">{context}</h2>
                     <br>
-                    <h2 class="content_text">Either <a href="http://localhost/verify?code={verification_encoded}">click here</a>, or on your next login, use this code:</h2>
+                    <h2 class="content_text">Either <a href="{domain}verify?code={verification_encoded}">click here</a>, or on your next login, use this code:</h2>
                     <br>
                     <p class="code">{verification}</p>
                     <br>

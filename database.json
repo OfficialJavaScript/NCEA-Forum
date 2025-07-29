@@ -111,6 +111,62 @@
             ],
             "ROLE": "Level 3",
             "USERNAME": "Leotar"
+        },
+        {
+            "CONFIRM_CODE": "",
+            "CONFIRM_STATUS": "Confirmed",
+            "EMAIL": "sebastian.johnstone@heretaunga.school.nz",
+            "ID": "8",
+            "LOGIN_COUNT": 1,
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$BgHOIk9HVWAR1sSWuWEvGQ$wvSzNCrJv5U9w+iKE7GrKx0es+jct3nAklouSlKPoAY",
+            "PROFILE": [
+                false,
+                ""
+            ],
+            "ROLE": "Level 3",
+            "USERNAME": "sebastianjohnstone"
+        },
+        {
+            "CONFIRM_CODE": "",
+            "CONFIRM_STATUS": "Confirmed",
+            "EMAIL": "seb@sebj.nz",
+            "ID": "9",
+            "LOGIN_COUNT": 0,
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$TN+uljKfqkq9QtO47/RsXw$C+fMnQf6NkYQ/iRM8uDs+tLRtWg/iLiHmE8754leh9A",
+            "PROFILE": [
+                false,
+                ""
+            ],
+            "ROLE": "Level 3",
+            "USERNAME": "seb123"
+        },
+        {
+            "CONFIRM_CODE": "",
+            "CONFIRM_STATUS": "Confirmed",
+            "EMAIL": "dheeren.nouthalapati@heretaunga.school.nz",
+            "ID": "10",
+            "LOGIN_COUNT": 1,
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$YW44PTbuJ9xIRCSzvTuQNQ$6wwnt3J2IQuY6UtnRmiqefMtDykMIVy1Ns0WwXviOqU",
+            "PROFILE": [
+                false,
+                ""
+            ],
+            "ROLE": "Educator",
+            "USERNAME": "dheeren.nouthalapati@heretaunga.school.nz"
+        },
+        {
+            "CONFIRM_CODE": "",
+            "CONFIRM_STATUS": "Confirmed",
+            "EMAIL": "heretaungacollegeforum@gmail.com",
+            "ID": "11",
+            "LOGIN_COUNT": 1,
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$rlaFqbORScA3NC/2F8FLvQ$1Ee359oqJy16ywCkwciODSGEsphX/CyVZr2Yj15Bwcs",
+            "PROFILE": [
+                false,
+                ""
+            ],
+            "ROLE": "Level 1",
+            "USERNAME": "heretaunga_college"
         }
     ]
 }

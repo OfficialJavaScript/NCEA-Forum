@@ -4,7 +4,7 @@
 }
 
 html {
-    background-color: #FFE8E6;
+    background-color: #FEFCFB;
     font-family: Calibri, Verdana;
 }
 
@@ -17,12 +17,6 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-}
-
-.other {
-    background-color: #D6CFB4;
-    background-color: #FCBC2F;
-    background-color: #8D0B41;
 }
 
 .header_top {
@@ -53,7 +47,7 @@ body {
     padding-top: 0.1vh;
     text-align: center;
     font-size: 1.5em;
-    background-color: #FFE8E6;
+    background-color: #FEFCFB;
     border: solid 3px gray;
     border-radius: 5px;
 }
@@ -114,7 +108,7 @@ body {
 }
 
 .post_header {
-    background-color: #D6CFB4;
+    background-color: #E9DCD3;
     height: 17.5vh;
     width: 90vw;
     margin-left: auto;
@@ -197,7 +191,7 @@ body {
 }
 
 .comment_content {
-    background-color: #D6CFB4;
+    background-color: #E9DCD3;
     border: solid black 1px;
     width: 85vw;
     margin-right: auto;

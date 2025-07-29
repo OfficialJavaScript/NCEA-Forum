@@ -13,7 +13,7 @@
             <form method="post" action="/signup" class="account_form">
                 <input type="email" name="email" placeholder="Email" class="account_input" required>
                 <br>
-                <input type="text" name="username" placeholder="Username" class="account_input" required>
+                <input type="text" name="username" placeholder="Username" class="account_input" maxlength="35" required>
                 <br>
                 <input type="password" name="password" placeholder="Password" class="account_input" required>
                 <br>
@@ -33,6 +33,8 @@
                     <h3 class="error">The Email and/or Username already exists.</h3>
                 {% elif password_error %}
                     <h3 class="error">Passwords do not match.</h3>
+                {% elif bad_char %}
+                    <h3 class="error">Username contains illegal character/s, only a-z, A-Z, 0-9, and _ allowed.</h3>
                 {% endif %}
                 <br>
             </form>

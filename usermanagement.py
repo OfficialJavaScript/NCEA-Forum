@@ -1,12 +1,21 @@
 import json, random, base64
 
-def exists(UID):
+characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '_']
+
+def exists(username):
     with open("database.json", 'r') as database:
         data = json.load(database)
-        for users in data["USERS"]:
-            if users["USERNAME"].lower() == UID.lower():
-                return users["ID"]
+        for user in data["USERS"]:
+            if user["USERNAME"].lower() == username.lower():
+                return user["ID"]
         return None
+    
+def exists_email(email):
+    with open("database.json", 'r') as database:
+        data = json.load(database)
+        for user in data["USERS"]:
+            if user["EMAIL"].lower() == email.lower():
+                return user["ID"]
 
 def create_user_id():
     with open("database.json", 'r') as database:
@@ -118,3 +127,9 @@ def get_email(uid):
 def read_name(uid):
     data = read_user_data(uid)
     return data["USERNAME"]
+
+def username_check(username):
+    for character in username:
+        if character not in characters:
+            return True
+    return False

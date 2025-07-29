@@ -1,10 +1,9 @@
 # Developed by Seb
 from flask import Flask, render_template, request, redirect, session
-import flask_login, argon2, usermanagement
 from flask_login import current_user
 from post_management import *
 from mailer import *
-import os
+import flask_login, argon2, usermanagement, os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(32).hex()
@@ -42,10 +41,12 @@ def login():
         username = request.form.get("username")
         uid = usermanagement.exists(username)
         if uid == None:
-            session['password_error'] = True
-            return redirect('/login')
+            uid = usermanagement.exists_email(username) 
+            if uid == None:
+                session['password_error'] = True
+                return redirect('/login')
         try:
-            authentication = password_hasher.verify(usermanagement.hash(uid), request.form.get("password"))
+            password_hasher.verify(usermanagement.hash(uid), request.form.get("password"))
         except argon2.exceptions.VerifyMismatchError:
             session['password_error'] = True
             return redirect('/login')
@@ -59,7 +60,8 @@ def login():
             session['verify_status'] = uid
             code = usermanagement.create_code()
             usermanagement.update_verification(uid, "Unconfirmed", code)
-            verify_email(usermanagement.get_email(uid), usermanagement.read_name(uid), uid, "Reverify Account", code)
+            domain = request.host_url
+            verify_email(usermanagement.get_email(uid), usermanagement.read_name(uid), uid, "Reverify Account", code, domain)
             return redirect('/verify')
         usermanagement.update_vcount(uid, "add")
         user = load_user(uid)
@@ -73,13 +75,22 @@ def login():
                 session['password_error'] = False
                 return render_template("login.html", password_error=True)
         return render_template("login.html", password_error=False)
-    
+
 @app.route("/signup", methods=['GET', 'POST'])
 def signup():
     if request.method == "POST":
         username = request.form.get("username")
+        username_check = usermanagement.username_check(username)
+        if username_check:
+            session['not_allowed_character'] = True
+            return redirect('/signup')
         exists = usermanagement.exists(username)
         if exists:
+            session['already_exists'] = True
+            return redirect("/signup")
+        email = request.form.get("email")
+        exists = usermanagement.exists_email(email)
+        if exists != "" and exists != None:
             session['already_exists'] = True
             return redirect("/signup")
         try:
@@ -92,9 +103,10 @@ def signup():
         user_role = ROLE_NAME[ROLES.index(request.form.get("role"))]
         user_id = str(usermanagement.create_user_id())
         code = usermanagement.create_code()
-        verify_email(request.form.get("email"), username, user_id, "New Account", code)
+        domain = request.host_url
+        verify_email(email, username, user_id, "New Account", code, domain)
         user = {
-            "EMAIL": request.form.get("email"),
+            "EMAIL": email,
             "USERNAME": username,
             "ID": user_id,
             "PASSWORD": password_hasher.hash(request.form.get("password")),
@@ -112,12 +124,16 @@ def signup():
             if session['already_exists'] == True:
                 session['already_exists'] = False
                 session['password_error'] = False
-                return render_template("signup.html", already_exists=True, password_error=True)
+                return render_template("signup.html", already_exists=True, password_error=True, bad_char=False)
         if 'password_error' in session:
             if session['password_error'] == True:
                 session['password_error'] = False
-                return render_template("signup.html", already_exists=False, password_error=True)
-        return render_template("signup.html", already_exists=False, password_error=False)
+                return render_template("signup.html", already_exists=False, password_error=True, bad_char=False)
+        if 'not_allowed_character' in session:
+            if session['not_allowed_character'] == True:
+                session['not_allowed_character'] = False
+                return render_template("signup.html", already_exists=False, password_error=False, bad_char=True)
+        return render_template("signup.html", already_exists=False, password_error=False, bad_char=False)
 
 @app.route("/logout")
 def logout():

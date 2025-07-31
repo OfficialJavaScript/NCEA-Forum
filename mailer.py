@@ -126,3 +126,6 @@ def verify_email(receiver_email, name, uid, authentication_type, verification, d
     smtp.sendmail(email["From"], email["To"], email.as_string())
     smtp.quit()
     return verification
+
+def post_update(reciever_email, name, uid, domain):
+    pass

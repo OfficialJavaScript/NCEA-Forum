@@ -3,6 +3,7 @@
     <head>
         <title>Forum - {{ content["title"] }}</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/forum.css') }}">
         <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
     </head>
     <body>
@@ -51,6 +52,14 @@
                     {% endfor %}
                 {% endif %}
             </div>
+            {% if current_user.is_authenticated %}
+            <div class="reply_container">
+                <form class="reply_form" method="post" action="/reply/forum/{{ content['id'] }}">
+                    <textarea class="reply_input" name="comment" required></textarea>
+                    <button type="submit" class="reply_button">Reply</button>
+                </form>
+            </div>
+            {% endif %}
         </div>
         {% include 'includes/footer.html' %}
     </body>

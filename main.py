@@ -214,7 +214,7 @@ def forum_topic(topic):
     topic = topic.lower()
     if topic not in TOPICS:
         return redirect('/forum')
-    return render_template("forum_topic.html", topics=load_topic_posts(topic))
+    return render_template("forum_topic.html", topics=load_topic_posts(topic), topic_length=len(load_topic_posts(topic)))
 
 @app.route('/forum/<id>')
 def forum_post(id):
@@ -224,5 +224,32 @@ def forum_post(id):
         comments = content[2]
         content = content[1]
     return render_template("forum.html", content=content, comments=comments)
+
+@app.route("/reply/<post_type>/<id>", methods=['POST'])
+def post_reply(post_type, id):
+    if current_user.is_authenticated:
+        if post_type == "forum":
+            if check_if_exists(id, "forum"):
+                add_comment(id, "forum", {
+                    "user": [current_user.username, current_user.id, usermanagement.role(current_user.id)],
+                    "content": request.form.get("comment"),
+                    "date": ""
+                })
+                if request.referrer:
+                    return redirect(request.referrer)
+                else:
+                    return redirect("/forum")
+        elif post_type == "guide":
+            check_if_exists(id, "guide")
+        else:
+            if request.referrer:
+                return redirect(request.referrer)
+            else:
+                return redirect("/forum")
+    else:
+        if request.referrer:
+            return redirect(request.referrer)
+        else:
+            return redirect("/forum")
 
 app.run(host='0.0.0.0', port=80, debug=True)

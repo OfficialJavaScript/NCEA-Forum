@@ -2,7 +2,20 @@
     "comments": [
         {
             "content": "Hi User...",
-            "user": ["Mr User", 1, "Educator"]
+            "user": [
+                "Mr User",
+                1,
+                "Educator"
+            ]
+        },
+        {
+            "content": "test",
+            "date": "",
+            "user": [
+                "Seb",
+                "0",
+                "Admin"
+            ]
         }
     ]
 }

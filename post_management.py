@@ -15,10 +15,14 @@ def post_information(type, id):
     return ["forum", post_data, comments]
 
 def write_post(post_information_var):
+    post_list = []
     for item in FORUM_FOLDER.iterdir():
         if item.is_dir():
-            last_pid = int(str(item).replace('content\\forum\\', "")) 
-    pid = last_pid + 1
+            post_list.append(int(str(item).replace('content\\forum\\', ""))) 
+        print(post_list)
+    post_list.sort()
+    print(post_list)
+    pid = post_list[-1] + 1
     folder = Path(f"content/forum/{pid}")
     folder.mkdir()
     with open(f"content/forum/{pid}/post.json", 'w') as post:
@@ -68,3 +72,18 @@ def topic_total_posts():
     for topic in topics:
         topics[topic] = len(topics[topic])
     return topics
+
+def check_if_exists(pid, post_type):
+    if Path(f"content/{post_type}/{pid}").is_dir():
+        return True
+    else:
+        return False
+    
+def add_comment(pid, post_type, content):
+    with open(f"content/{post_type}/{pid}/comments.json", 'r+') as comment_file:
+        comments = json.load(comment_file)
+        comments["comments"].append(content)
+        comment_file.seek(0)
+        json.dump(comments, comment_file, sort_keys=True, indent=4)
+        comment_file.truncate()
+        comment_file.close()

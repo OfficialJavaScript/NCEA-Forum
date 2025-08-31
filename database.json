@@ -89,7 +89,7 @@
             "CONFIRM_STATUS": "Confirmed",
             "EMAIL": "dheeren.nouthalapati@heretaunga.school.nz",
             "ID": "6",
-            "LOGIN_COUNT": 3,
+            "LOGIN_COUNT": 2,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$I1dc64g8Qj7OYnfURxmBRg$Mb3T5RSnDBexyfFmIiqqjpdoU6tYCkhogLDPQjDOw/Y",
             "PROFILE": [
                 false,
@@ -131,8 +131,8 @@
             "CONFIRM_STATUS": "Confirmed",
             "EMAIL": "seb@sebj.nz",
             "ID": "9",
-            "LOGIN_COUNT": 0,
-            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$TN+uljKfqkq9QtO47/RsXw$C+fMnQf6NkYQ/iRM8uDs+tLRtWg/iLiHmE8754leh9A",
+            "LOGIN_COUNT": 2,
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$dtvjF/Nimm1NU51H3VdhtQ$lWkrs3nxB1hvKE/wmPNbqYWDIEJFfOfIUK86AT5IXi4",
             "PROFILE": [
                 false,
                 ""
@@ -181,6 +181,62 @@
             ],
             "ROLE": "Past Student",
             "USERNAME": "GOOGOO"
+        },
+        {
+            "CONFIRM_CODE": "972518",
+            "CONFIRM_STATUS": "Unconfirmed",
+            "EMAIL": "imgood@doinyour.mom",
+            "ID": "13",
+            "LOGIN_COUNT": 0,
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$YUvPaac00dTZ0vySdS2r5g$o25b1ZcOa3yj+o2J99Ihgr+87QL57qcQhL+g22l4Lh4",
+            "PROFILE": [
+                false,
+                ""
+            ],
+            "ROLE": "Past Student",
+            "USERNAME": "imgood"
+        },
+        {
+            "CONFIRM_CODE": "531100",
+            "CONFIRM_STATUS": "Unconfirmed",
+            "EMAIL": "majavi9241@percyfx.com",
+            "ID": "14",
+            "LOGIN_COUNT": 0,
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$H281YY7dJAkQReW6EV9ijw$nuAiZNm7LkcRXPL8Si+GkF33Bap2tzojo5ySPwcn2UQ",
+            "PROFILE": [
+                false,
+                ""
+            ],
+            "ROLE": "Past Student",
+            "USERNAME": "majavi9241"
+        },
+        {
+            "CONFIRM_CODE": "",
+            "CONFIRM_STATUS": "Confirmed",
+            "EMAIL": "sebjohnstone@proton.me",
+            "ID": "15",
+            "LOGIN_COUNT": 4,
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$73NS5zof5XKpT11OlSBqfA$o47xqx6GKYiyCrhZon0ZO9r5fmJJb2OtEYvwnS4NCW4",
+            "PROFILE": [
+                false,
+                ""
+            ],
+            "ROLE": "Educator",
+            "USERNAME": "Seb_2"
+        },
+        {
+            "CONFIRM_CODE": "",
+            "CONFIRM_STATUS": "Confirmed",
+            "EMAIL": "victor.christie@heretaunga.school.nz",
+            "ID": "16",
+            "LOGIN_COUNT": 1,
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$duee9TkZ+REEoey6Vgls9w$t/fIWU+RP5T5Vq+FvK6/vjN/L/CI0s2yHz53tR18DkQ",
+            "PROFILE": [
+                false,
+                ""
+            ],
+            "ROLE": "Level 3",
+            "USERNAME": "SourStew47"
         }
     ]
 }

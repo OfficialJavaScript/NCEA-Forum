@@ -11,7 +11,11 @@
         <div class="container">
             <div class="post_header">
                 <div class="post_header_title">
-                    <h2 class="post_header_title_text">{{ content["title"] }}</h2>
+                    <div class="post_header_wrapper">
+                        <div class="post_header_title_container">
+                            <h2 class="post_header_title_text">{{ content["title"] }}</h2>
+                        </div>
+                    </div>
                 </div>
                 <div class="post_info_container">
                     <div class="post_header_profile">
@@ -54,11 +58,14 @@
             </div>
             {% if current_user.is_authenticated %}
             <div class="reply_container">
-                <form class="reply_form" method="post" action="/reply/forum/{{ content['id'] }}">
+                <form class="reply_form" method="post" action="/forum/{{ content['id'] }}/reply">
                     <textarea class="reply_input" name="comment" required></textarea>
                     <button type="submit" class="reply_button">Reply</button>
                 </form>
             </div>
+            <form method="post" action="/forum/{{ content['id'] }}/follow">
+                <button type="submit">Follow</button>
+            </form>
             {% endif %}
         </div>
         {% include 'includes/footer.html' %}

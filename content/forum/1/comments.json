@@ -16,6 +16,24 @@
                 "0",
                 "Admin"
             ]
+        },
+        {
+            "content": "test",
+            "date": "",
+            "user": [
+                "Seb",
+                "0",
+                "Admin"
+            ]
+        },
+        {
+            "content": "Hey, this is a test that the post system is working well!",
+            "date": "",
+            "user": [
+                "Seb",
+                "0",
+                "Admin"
+            ]
         }
     ]
 }

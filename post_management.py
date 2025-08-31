@@ -1,5 +1,6 @@
-import json
+import json, threading, usermanagement
 from pathlib import Path
+from mailer import post_update
 
 FORUM_FOLDER = Path("content/forum/")
 
@@ -87,3 +88,23 @@ def add_comment(pid, post_type, content):
         json.dump(comments, comment_file, sort_keys=True, indent=4)
         comment_file.truncate()
         comment_file.close()
+        
+def email_post_follower(pid, username, post_type, domain):
+    with open(f"content/{post_type}/{pid}/post.json", 'r') as post_file:
+        post_info = json.load(post_file)
+        users = post_info["followers"]
+        post_file.close()
+    for user in users:
+        if user[0].lower() != username.lower():
+            notify_user = threading.Thread(target=post_update, args=(user[1], user[0], domain, load_post(pid)["title"], pid, username))
+            notify_user.start()
+            
+def add_post_follow(pid, post_type, username, email):
+    if [username, email] not in load_post(pid)["followers"]:
+        with open(f"content/{post_type}/{pid}/post.json", 'r+') as post_file:
+            post_info = json.load(post_file)
+            post_info["followers"].append([username, email])
+            post_file.seek(0)
+            json.dump(post_info, post_file, sort_keys=True, indent=4)
+            post_file.truncate()
+            post_file.close()

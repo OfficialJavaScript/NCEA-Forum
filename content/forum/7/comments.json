@@ -1,3 +1,22 @@
 {
-    "comments": []
+    "comments": [
+        {
+            "content": "I can help!",
+            "date": "",
+            "user": [
+                "seb123",
+                "9",
+                "Level 3"
+            ]
+        },
+        {
+            "content": "It's difficult.",
+            "date": "",
+            "user": [
+                "Seb",
+                "0",
+                "Admin"
+            ]
+        }
+    ]
 }

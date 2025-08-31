@@ -1,7 +1,7 @@
 {
     "comment": "Yes",
     "id": 5,
-    "title": "Victor is in the toilet",
+    "title": "Victor is here",
     "topic": [
         "sickness"
     ],
@@ -9,5 +9,8 @@
         "Seb",
         "0",
         "Admin"
+    ],
+    "followers": [
+        
     ]
 }

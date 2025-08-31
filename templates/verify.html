@@ -15,7 +15,7 @@
                         <br>
                         <button class="login_button" onclick="login()">Log In</button>
                     {% else %}
-                        <h1 class="header">A code has been sent to your email, please enter the code below:</h1>
+                        <h1 class="header">A code has been sent to your email. Please enter it below:</h1>
                         <br>
                         <form method="post" action="/verify" class="verify_form">
                             <input type="text" name="code" placeholder="Enter Code" required class="form_content verify_input">
@@ -23,7 +23,9 @@
                             <input type="submit" value="Submit" class="form_content verify_submit">
                         </form>
                         {% if failed %}
-                            <h2 class="error">The code you have entered is incorrect</h2>
+                            <h2 class="error">The code you have entered is incorrect.</h2>
+                        {% else %}
+                            <h2 class="email_delay">This email may take up to 2 minutes to arrive.</h2>
                         {% endif %}
                     </div>
                 {% endif %}

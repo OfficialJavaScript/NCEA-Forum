@@ -1,3 +1,31 @@
 {
-    "comments": []
+    "comments": [
+        {
+            "content": "Is this legal?",
+            "date": "",
+            "user": [
+                "Seb",
+                "0",
+                "Admin"
+            ]
+        },
+        {
+            "content": "Yes, if you like, subscribe and follow Gohar",
+            "date": "",
+            "user": [
+                "Dheeren Chowdary Nouthalapati",
+                "6",
+                "Level 2"
+            ]
+        },
+        {
+            "content": "Can I help?",
+            "date": "",
+            "user": [
+                "Diddy",
+                "15",
+                "Educator"
+            ]
+        }
+    ]
 }

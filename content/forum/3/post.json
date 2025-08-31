@@ -1,13 +1,25 @@
 {
     "comment": "Am I able to carry any of my credits over from Level 2 to Level 3?",
+    "date": "Now",
+    "followers": [
+        [
+            "Seb",
+            "sebastian.johnstone@heretaunga.school.nz"
+        ],
+        [
+            "Seb_2",
+            "sebjohnstone@proton.me"
+        ]
+    ],
     "id": "3",
+    "images": "",
     "title": "Credit pass over",
-    "topic": ["levelthree"],
+    "topic": [
+        "levelthree"
+    ],
     "user": [
         "Seb",
         "0",
         "Admin"
-    ],
-    "images": "",
-    "date": "Now"
+    ]
 }

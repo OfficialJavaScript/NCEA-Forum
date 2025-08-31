@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, session
 from flask_login import current_user
 from post_management import *
 from mailer import *
-import flask_login, argon2, usermanagement, os
+import flask_login, argon2, usermanagement, os, threading
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(32).hex()
@@ -61,7 +61,8 @@ def login():
             code = usermanagement.create_code()
             usermanagement.update_verification(uid, "Unconfirmed", code)
             domain = request.host_url
-            verify_email(usermanagement.get_email(uid), usermanagement.read_name(uid), uid, "Reverify Account", code, domain)
+            verify_account = threading.Thread(target=verify_email, args=(usermanagement.get_email(uid), usermanagement.read_name(uid), uid, "Reverify Account", code, domain))
+            verify_account.start()
             return redirect('/verify')
         usermanagement.update_vcount(uid, "add")
         user = load_user(uid)
@@ -104,7 +105,12 @@ def signup():
         user_id = str(usermanagement.create_user_id())
         code = usermanagement.create_code()
         domain = request.host_url
+        
         verify_email(email, username, user_id, "New Account", code, domain)
+        
+        verify_account = threading.Thread(target=verify_email, args=(email, username, user_id, "New Account", code, domain))
+        
+        verify_account.start()
         user = {
             "EMAIL": email,
             "USERNAME": username,
@@ -199,7 +205,8 @@ def create_post():
                 "comment": request.form.get("comment"),
                 "user": [current_user.username, current_user.id, usermanagement.role(current_user.id)],
                 "id": "",
-                "topic": [f"{request.form.get("topic")}"]
+                "topic": [f"{request.form.get("topic")}"],
+                "followers": []
             }
             write_post(post_info)
             return redirect('/forum')
@@ -225,7 +232,7 @@ def forum_post(id):
         content = content[1]
     return render_template("forum.html", content=content, comments=comments)
 
-@app.route("/reply/<post_type>/<id>", methods=['POST'])
+@app.route("/<post_type>/<id>/reply", methods=['POST'])
 def post_reply(post_type, id):
     if current_user.is_authenticated:
         if post_type == "forum":
@@ -235,6 +242,7 @@ def post_reply(post_type, id):
                     "content": request.form.get("comment"),
                     "date": ""
                 })
+                email_post_follower(id, current_user.username, post_type, request.host_url)
                 if request.referrer:
                     return redirect(request.referrer)
                 else:
@@ -251,5 +259,17 @@ def post_reply(post_type, id):
             return redirect(request.referrer)
         else:
             return redirect("/forum")
+
+@app.route('/<post_type>/<pid>/follow', methods=['POST'])
+def follow_post(post_type, pid):
+    if current_user.is_authenticated:
+        if check_if_exists(pid, post_type):
+            
+            add_post_follow(pid, post_type, current_user.username, usermanagement.get_email(current_user.id))
+            return redirect(request.referrer)
+        else:
+            return redirect(request.referrer)
+    else:
+        return redirect(request.referrer)
 
 app.run(host='0.0.0.0', port=80, debug=True)

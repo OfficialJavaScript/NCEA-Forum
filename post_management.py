@@ -3,17 +3,16 @@ from pathlib import Path
 from mailer import post_update
 
 FORUM_FOLDER = Path("content/forum/")
+GUIDE_FOLDER = Path("content/guide/")
 
 def post_information(type, id):
-    with open(f'content/{type}/{id}/post.json', 'r+') as post:
+    with open(f'content/{type}/{id}/post.json', 'r') as post:
         post_data = json.load(post)
-        if type != "forum":
-            return post_data 
         post.close()
-    with open(f'content/{type}/{id}/comments.json', 'r+') as comments:
+    with open(f'content/{type}/{id}/comments.json', 'r') as comments:
         comments = json.load(comments)
         post.close()
-    return ["forum", post_data, comments]
+    return [type, post_data, comments]
 
 def write_post(post_information_var):
     post_list = []
@@ -46,6 +45,11 @@ def write_post(post_information_var):
         
 def load_post(pid):
     with open(f"content/forum/{pid}/post.json", 'r+') as post:
+        file_info = json.load(post)
+        return file_info
+    
+def load_guide(pid):
+    with open(f"content/guide/{pid}/post.json", 'r+') as post:
         file_info = json.load(post)
         return file_info
 
@@ -99,11 +103,21 @@ def email_post_follower(pid, username, post_type, domain):
             notify_user = threading.Thread(target=post_update, args=(user[1], user[0], domain, load_post(pid)["title"], pid, username))
             notify_user.start()
             
-def add_post_follow(pid, post_type, username, email):
+def add_post_follow(pid, username, email):
     if [username, email] not in load_post(pid)["followers"]:
-        with open(f"content/{post_type}/{pid}/post.json", 'r+') as post_file:
+        with open(f"content/forum/{pid}/post.json", 'r+') as post_file:
             post_info = json.load(post_file)
             post_info["followers"].append([username, email])
+            post_file.seek(0)
+            json.dump(post_info, post_file, sort_keys=True, indent=4)
+            post_file.truncate()
+            post_file.close()
+            
+def remove_post_follow(pid, username, email):
+    if [username, email] in load_post(pid)["followers"]:
+        with open(f"content/forum/{pid}/post.json", 'r+') as post_file:
+            post_info = json.load(post_file)
+            post_info["followers"].remove([username, email])
             post_file.seek(0)
             json.dump(post_info, post_file, sort_keys=True, indent=4)
             post_file.truncate()

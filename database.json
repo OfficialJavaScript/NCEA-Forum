@@ -5,7 +5,7 @@
             "CONFIRM_STATUS": "Confirmed",
             "EMAIL": "sebastian.johnstone@heretaunga.school.nz",
             "ID": "0",
-            "LOGIN_COUNT": 2,
+            "LOGIN_COUNT": 1,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$dtvjF/Nimm1NU51H3VdhtQ$lWkrs3nxB1hvKE/wmPNbqYWDIEJFfOfIUK86AT5IXi4",
             "PROFILE": [
                 false,
@@ -89,7 +89,7 @@
             "CONFIRM_STATUS": "Confirmed",
             "EMAIL": "dheeren.nouthalapati@heretaunga.school.nz",
             "ID": "6",
-            "LOGIN_COUNT": 2,
+            "LOGIN_COUNT": 3,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$I1dc64g8Qj7OYnfURxmBRg$Mb3T5RSnDBexyfFmIiqqjpdoU6tYCkhogLDPQjDOw/Y",
             "PROFILE": [
                 false,

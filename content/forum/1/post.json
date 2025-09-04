@@ -1,21 +1,16 @@
 {
     "comment": "Hi, I only have 10 writing credits, and no reading credits. For Univesity Entrace, can I use some of my writing credits in place of my reading credits?",
-    "date": "Yesterday",
-    "followers": [
-        [
-            "Seb",
-            "sebastian.johnstone@heretaunga.school.nz"
-        ]
-    ],
     "id": "1",
-    "images": "",
     "title": "UE Entrance Credits",
-    "topic": [
-        "levelthree"
-    ],
+    "topic": ["levelthree"],
     "user": [
         "Admin",
-        0,
+        0, 
         "Level 3"
+    ],
+    "images": "",
+    "date": "Yesterday",
+    "followers": [
+        ["Seb", "sebastian.johnstone@heretaunga.school.nz"]
     ]
 }

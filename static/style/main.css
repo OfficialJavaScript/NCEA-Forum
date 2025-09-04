@@ -72,8 +72,21 @@ body {
     margin-left: .5vw;
     margin-top: auto;
     margin-bottom: auto;
-    height: 85%;
-    width: 6vw;
+    height: 5vh;
+    width: 10.5vw;
+    background-color: #8D0B41;
+    border: solid black 2px;
+    font-size: 1.4em;
+    color: #FCBC2F;
+    border-radius: 5px;
+    border-color: #cf105f;
+}
+
+.nav_buttons_list {
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 5vh;
+    width: 10.5vw;
     background-color: #8D0B41;
     border: solid black 2px;
     font-size: 1.4em;
@@ -117,10 +130,26 @@ body {
     border: solid black 1px;
 }
 
+.post_header_guide {
+    background-color: #E9DCD3;
+    height: 22vh;
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vh;
+    border: solid black 1px;
+}
+
 .post_header_title_text {
     font-weight: 400;
     margin-left: .5vw;
     font-size: 2.25em;
+}
+
+.post_header_subtitle_text {
+    font-weight: 200;
+    margin-left: .5vw;
+    font-size: 1.5em;
 }
 
 .post_header_profile {
@@ -151,6 +180,7 @@ body {
 
 .post_header_info_text {
     font-weight: 400;
+    margin-left: 0.5vw;
 }
 
 .post_info_share {
@@ -158,6 +188,24 @@ body {
     margin-right: 1vw;
     margin-top: auto;
     margin-bottom: 1vh;
+    display: flex;
+    height: 50%;
+}
+
+.post_header_image {
+    height: 100%;
+}
+
+.post_header_button {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    height: 100%;
+}
+
+.form_header {
+    height: 100%;
+    padding: none;
+    margin: none;
 }
 
 .post_comments {
@@ -249,4 +297,47 @@ footer {
     margin-top: 2vh;
     color: red;
     text-align: center;
+}
+
+ul {
+    list-style: none;
+    display: flex; 
+    width: 100%;
+}
+
+ul li {
+    display: inline-block;
+    position: relative;
+}
+
+ul li button {
+    display: block;
+}
+
+ul ul.dropdown li {
+    display: block;
+
+}
+
+ul li ul.dropdown {
+    width: 100%;
+    position: absolute;
+    z-index: 999;
+    display: none;
+    margin-left: .5vw;
+    margin-top: 5.5vh;
+}
+
+
+ul li button:hover {
+    background-color: purple;
+}
+
+ul li:hover ul.dropdown {
+    display: block;
+
+}
+
+.dropdown_button_list {
+    display: flex;
 }

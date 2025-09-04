@@ -1,0 +1,15 @@
+{
+    "comment": "This is a post about the current date.",
+    "date": "19-08-2025",
+    "followers": [],
+    "id": 15,
+    "title": "Post about the current date.",
+    "topic": [
+        "caas"
+    ],
+    "user": [
+        "Seb",
+        "0",
+        "Admin"
+    ]
+}

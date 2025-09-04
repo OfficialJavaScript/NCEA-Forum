@@ -1,7 +1,12 @@
 {
-    "title": "Test",
-    "description": "This is a test post",
-    "user": ["Admin", "0"],
+    "title": "Guide: How to pass NCEA Level 1",
+    "comment": "What is NCEA? How do you earn credits? What are Literacy & Numeracy Credits? And many more questions are answered in this guide.",
+    "id": "1",
+    "user": [
+        "Seb",
+        "0",
+        "Admin"
+    ],
     "images": "",
     "date": ""
 }

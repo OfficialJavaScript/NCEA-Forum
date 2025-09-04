@@ -8,18 +8,47 @@
             </form>
         </div>
         <div class="nav_bar">
-            <button class="nav_buttons nav_home" onclick="home()">Home</button>
-            <button class="nav_buttons" onclick="lone()">Level 1</button>
-            <button class="nav_buttons" onclick="ltwo()">Level 2</button>
-            <button class="nav_buttons" onclick="lthree()">Level 3</button>
-            <button class="nav_buttons" onclick="ncea()">NCEA</button>
-            <button class="nav_buttons" onclick="forum()">Forum</button>
-            {% if current_user.is_authenticated %}
-                <button class="nav_buttons nav_account nav_logout" onclick="logout()">Log Out</button>
-            {% else %}
-                <button class="nav_buttons nav_account nav_login" onclick="login()">Log In</button>
-                <button class="nav_buttons nav_account nav_signup" onclick="signup()">Sign Up</button>
-            {% endif %}
+            <ul>
+                <button class="nav_buttons nav_home" onclick="home()">Home</button>
+                <li class="dropdown_button_list">
+                    <button class="nav_buttons">Level 1</button>
+                    <ul class="dropdown">
+                        <li><button class="nav_buttons_list dropdown_button" onclick="lone()">Guide</button></li>
+                        <li><button class="nav_buttons_list dropdown_button" onclick="caas()">CAAs</button></li>
+                    </ul>
+                </li>
+                <li class="dropdown_button_list">
+                    <button class="nav_buttons">Level 2</button>
+                    <ul class="dropdown">
+                        <li><button class="nav_buttons_list dropdown_button" onclick="ltwo()">Guide</button></li>
+                    </ul>
+                </li>
+                <li class="dropdown_button_list">
+                    <button class="nav_buttons">Level 3</button>
+                    <ul class="dropdown">
+                        <li><button class="nav_buttons_list dropdown_button" onclick="lthree()">Guide</button></li>
+                    </ul>
+                </li>
+                <li class="dropdown_button_list">
+                    <button class="nav_buttons">NCEA</button>
+                    <ul class="dropdown">
+                        <li><button class="nav_buttons_list dropdown_button" onclick="assessments()">Assessments</button></li>
+                        <li><button class="nav_buttons_list dropdown_button" onclick="exams()">Exams</button></li>
+                        <li><button class="nav_buttons_list dropdown_button" onclick="endorsements()">Endorsements</button></li>
+                        <li><button class="nav_buttons_list dropdown_button" onclick="tipsandtricks()">Tips & Tricks</button></li>
+                        <li><button class="nav_buttons_list dropdown_button" onclick="rules()">Rules</button></li>
+                        <li><button class="nav_buttons_list dropdown_button" onclick="home()">Exams (userful links on page)</button></li>
+                        <li><button class="nav_buttons_list dropdown_button" onclick="faq()">FAQ</button></li>
+                    </ul>
+                </li>
+                <button class="nav_buttons" onclick="forum()">Forum</button>
+                {% if current_user.is_authenticated %}
+                    <button class="nav_buttons nav_account nav_logout" onclick="logout()">Log Out</button>
+                {% else %}
+                    <button class="nav_buttons nav_account nav_login" onclick="login()">Log In</button>
+                    <button class="nav_buttons nav_account nav_signup" onclick="signup()">Sign Up</button>
+                {% endif %}
+            </ul>
         </div>                
     </div>
 </header>

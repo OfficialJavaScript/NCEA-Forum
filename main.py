@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect, session
 from flask_login import current_user
 from post_management import *
 from mailer import *
+from datetime import date
 import flask_login, argon2, usermanagement, os, threading
 
 app = Flask(__name__)
@@ -200,13 +201,15 @@ def create_post():
         if current_user.is_authenticated == True:
             if request.form.get("topic").lower() not in TOPICS:
                 return redirect("/forum/create_post")
+            current_date = date.today()
             post_info = {
                 "title": request.form.get("title"),
                 "comment": request.form.get("comment"),
                 "user": [current_user.username, current_user.id, usermanagement.role(current_user.id)],
                 "id": "",
                 "topic": [f"{request.form.get("topic")}"],
-                "followers": []
+                "followers": [],
+                "date": current_date.strftime("%d-%m-%Y")
             }
             write_post(post_info)
             return redirect('/forum')
@@ -230,7 +233,13 @@ def forum_post(id):
     if content[0] == "forum":
         comments = content[2]
         content = content[1]
-    return render_template("forum.html", content=content, comments=comments)
+    following_post = False
+    if current_user.is_authenticated:
+        for user in content["followers"]:
+            if user[0].lower() == current_user.username.lower():
+                following_post = True
+                break
+    return render_template("forum.html", content=content, comments=comments, blog_type="forum", following_post=following_post, url=request.base_url)
 
 @app.route("/<post_type>/<id>/reply", methods=['POST'])
 def post_reply(post_type, id):
@@ -260,16 +269,35 @@ def post_reply(post_type, id):
         else:
             return redirect("/forum")
 
-@app.route('/<post_type>/<pid>/follow', methods=['POST'])
-def follow_post(post_type, pid):
+@app.route('/forum/<pid>/follow', methods=['POST'])
+def follow_post(pid):
     if current_user.is_authenticated:
-        if check_if_exists(pid, post_type):
-            
-            add_post_follow(pid, post_type, current_user.username, usermanagement.get_email(current_user.id))
+        if check_if_exists(pid, "forum"):
+            add_post_follow(pid, current_user.username, usermanagement.get_email(current_user.id))
             return redirect(request.referrer)
         else:
             return redirect(request.referrer)
     else:
         return redirect(request.referrer)
+    
+@app.route('/forum/<pid>/unfollow', methods=['POST'])
+def unfollow_post(pid):
+    if current_user.is_authenticated:
+        if check_if_exists(pid, "forum"):
+            remove_post_follow(pid, current_user.username, usermanagement.get_email(current_user.id))
+            return redirect(request.referrer)
+        else:
+            return redirect(request.referrer)
+    else:
+        return redirect(request.referrer)
+    
+@app.route('/guide/<id>')
+def guide(id):
+    content = post_information("guide", id)
+    print(content)
+    comments = []
+    comments = content[2]
+    content = content[1]
+    return render_template("forum.html", content=content, comments=comments, blog_type="guide", url=request.base_url)
 
 app.run(host='0.0.0.0', port=80, debug=True)

@@ -6,14 +6,30 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='style/forum.css') }}">
         <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
     </head>
-    <body>
+    <body id="body">
+        <div id="share_overlay">
+            <div class="share_overlay">
+                <div class="share_text_main">
+                    <div class="share_input_box_container">
+                        <input id="share_link_box" type="text" value="{{ url }}" readonly>
+                    </div>
+                    <div class="share_copy_link_container">
+                        <button onclick="copy_link()" class="share_copy_link">Copy Link</button>
+                    </div>
+                </div>
+                <button class="share_close" onclick="close_share()"><img src="{{ url_for('static', filename='content/exit.png') }}" height="100%"></button>
+            </div>
+        </div>
         {% include 'includes/header.html' %}
         <div class="container">
-            <div class="post_header">
+            <div class="{% if blog_type == 'forum' %}post_header{% else %}post_header_guide{% endif %}">
                 <div class="post_header_title">
                     <div class="post_header_wrapper">
                         <div class="post_header_title_container">
                             <h2 class="post_header_title_text">{{ content["title"] }}</h2>
+                            {% if blog_type == "guide" %}
+                            <h3 class="post_header_subtitle_text">{{ content["comment"] }}</h3>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -23,14 +39,32 @@
                     </div>
                     <div class="post_header_info">
                         <h2 class="post_header_info_text">By: {{ content["user"][0] }}</h2>
+                        {% if blog_type == "forum" %}
                         <h2 class="post_header_info_text">Posted: {{ content["date"] }}</h2>
+                        {% endif %}
                     </div>
                     <div class="post_info_share">
-                        <h2 class="post_header_info_text">Share</h2>
+                        {% if blog_type == "forum" %}
+                            {% if current_user.is_authenticated %}
+                                <form method="post" action="/{{ blog_type }}/{{ content['id'] }}/{% if following_post %}unfollow{% else %}follow{%endif%}" class="form_header">
+                                    <button class="post_header_button">
+                                        {% if following_post %}
+                                            <img class="post_header_image" src="{{ url_for('static', filename='content/following.png') }}" onmouseover="this.src='{{ url_for('static', filename='content/unfollow.png') }}'" onmouseout="this.src='{{ url_for('static', filename='content/following.png') }}'">
+                                        {% else %}    
+                                            <img class="post_header_image" src="{{ url_for('static', filename='content/follow.png') }}">
+                                        {% endif %}
+                                    </button>
+                                </form>
+                            {% endif %}
+                        {% endif %}
+                        <button class="post_header_button" onclick="open_share()">
+                            <img class="post_header_image" src="{{ url_for('static', filename='content/share.png') }}">
+                        </button>
                     </div>
                 </div>
             </div>
             <div class="post_comments">
+                {% if blog_type == "forum" %}
                 <div class="post_comment">
                     <div class="post_comment_profile">
                         <img src="{{ url_for('static', filename='content/profile.png')}}" height="50%" class="profile_picture comment_pfp">
@@ -41,6 +75,7 @@
                         <h2 class="comment_text">{{ content["comment"] }}</h2>
                     </div>
                 </div>
+                {% endif %}
                 {% if comments["comments"] %}
                     {% for comment in comments["comments"] %}
                         <div class="post_comment">
@@ -56,16 +91,15 @@
                     {% endfor %}
                 {% endif %}
             </div>
-            {% if current_user.is_authenticated %}
-            <div class="reply_container">
-                <form class="reply_form" method="post" action="/forum/{{ content['id'] }}/reply">
-                    <textarea class="reply_input" name="comment" required></textarea>
-                    <button type="submit" class="reply_button">Reply</button>
-                </form>
-            </div>
-            <form method="post" action="/forum/{{ content['id'] }}/follow">
-                <button type="submit">Follow</button>
-            </form>
+            {% if blog_type == "forum" %}
+                {% if current_user.is_authenticated %}
+                    <div class="reply_container">
+                        <form class="reply_form" method="post" action="/forum/{{ content['id'] }}/reply">
+                            <textarea class="reply_input" name="comment" required></textarea>
+                            <button type="submit" class="reply_button">Reply</button>
+                        </form>
+                    </div>
+                {% endif %}
             {% endif %}
         </div>
         {% include 'includes/footer.html' %}

@@ -42,6 +42,10 @@ function faq() {
     location.href = "/guide/10"
 }
 
+function extras() {
+    location.href = "/guide/11"
+}
+
 function forum() {
     location.href = "/forum"
 }
@@ -65,8 +69,6 @@ function search() {
 function create_post() {
     location.href = "/forum/create_post"
 }
-
-
 
 function open_share() {
     document.getElementById("share_overlay").style.display = "flex";

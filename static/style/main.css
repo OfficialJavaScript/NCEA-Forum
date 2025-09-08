@@ -218,6 +218,7 @@ body {
     display: flex;
     flex-direction: row;
     margin-bottom: 4vh;
+    margin-bottom: 6vh;
 }
 
 .post_comment_profile {
@@ -254,8 +255,8 @@ body {
 
 footer {
     background-color: #8D0B41;
-    max-height: 33vh;
-    height: 33vh;
+    max-height: 36vh;
+    height: 36vh;
     display: flex;
     flex-direction: column;
     margin-top: auto;
@@ -269,7 +270,7 @@ footer {
 
 .footer_button {
     background-color: #FCBC2F;
-    height: 4vh;
+    height: 5vh;
     width: 20vw;
     font-size: 1.5em;
     border: solid black 1px;
@@ -305,8 +306,8 @@ ul {
     width: 100%;
 }
 
+
 ul li {
-    display: inline-block;
     position: relative;
 }
 
@@ -329,7 +330,7 @@ ul li ul.dropdown {
 }
 
 
-ul li button:hover {
+ul li button:hover, .nav_hovers:hover {
     background-color: purple;
 }
 
@@ -340,4 +341,13 @@ ul li:hover ul.dropdown {
 
 .dropdown_button_list {
     display: flex;
+}
+
+.guide_content_list {
+    margin-left: 1.6vw;
+    list-style-type: disc;
+}
+
+.links {
+    color: white;
 }

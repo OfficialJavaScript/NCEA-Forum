@@ -88,7 +88,7 @@
 }
 
 hr {
-    height: 2px;
+    height: 1.5px;
     background-color: black;
     border: none;
 }
@@ -244,4 +244,18 @@ hr {
     border: none;
     height: 5vh;
     margin-left: 26.7vw;
+}
+
+.guide_useful_links {
+    color: gray;
+}
+
+.guide_images {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.comment_text {
+    display: flex;
+    flex-direction: column;
 }

@@ -1,16 +1,16 @@
 {
-    "comment": "We dont want you here",
-    "id": 9,
-    "title": "Please Leave Sebastian!",
+    "comment": "This is a post about the current date.",
+    "date": "19-08-2025",
+    "followers": [],
+    "id": 15,
+    "title": "Post about the current date.",
     "topic": [
-        "schoolleavers"
+        "caas"
     ],
     "user": [
-        "Dheeren Chowdary Nouthalapati",
-        "6",
-        "Level 2"
+        "Seb",
+        "0",
+        "Admin"
     ],
-    "followers": [
-        
-    ]
+    "profile": "eagle"
 }

@@ -1,6 +1,6 @@
 {
     "title": "Guide - Tips and Tricks",
-    "comment": "REWRITE ME What is NCEA? How do you earn credits? What are Literacy & Numeracy Credits? And many more questions are answered in this guide.",
+    "comment": "How do you track credits and progress? What study habits help the most? And how do you set up a timetable? This guide shows you how.",
     "id": "8",
     "user": [
         "Seb",
@@ -8,5 +8,6 @@
         "Admin"
     ],
     "images": "",
-    "date": ""
+    "date": "",
+    "profile": "eagle"
 }

@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='style/forum.css') }}">
         <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+        <link rel="icon" type="images/x-icon" href="{{ url_for('static', filename='content/favicon.ico') }}">
     </head>
     <body>
         {% include 'includes/header.html' %}
@@ -22,7 +23,7 @@
                                 <a class="post_title" href="/forum/{{ topic['id'] }}"><h2>{{ topic["title"] }}</h2></a>
                             </div>
                             <div class="post_bottom">
-                                <h2 class="post_user">By <a href="google.com" class="post_user_link">{{ topic["user"][0] }}</a> | {{ topic["date"] }}</h2>
+                                <h2 class="post_user">By {{ topic["user"][0] }} | {{ topic["date"] }}</h2>
                             </div>
                         </div>
                         <div class="post_total_comments">

@@ -1,16 +1,17 @@
 {
     "comment": "The whole class is failing right now, you better do better.",
-    "id": "1",
+    "id": "2",
     "title": "Failing",
     "topic": ["internal"],
     "user": [
-        "Mrs Leota",
+        "Seb",
         0,
-        "Teacher"
+        "Admin"
     ],
     "images": "",
-    "date": "Now",
+    "date": "01-07-2025",
     "followers": [
         
-    ]
+    ],
+    "profile": "eagle"
 }

@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='style/forum.css') }}">
         <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+        <link rel="icon" type="images/x-icon" href="{{ url_for('static', filename='content/favicon.ico') }}">
     </head>
     <body id="body">
         <div id="share_overlay">
@@ -35,7 +36,7 @@
                 </div>
                 <div class="post_info_container">
                     <div class="post_header_profile">
-                        <img src="{{ url_for('static', filename='content/profile.png')}}" height="80%" class="profile_picture margin_auto">
+                        <img src="{{ url_for('static', filename='content/profiles/' + content['profile'] + '.png')}}" height="80%" class="profile_picture margin_auto">
                     </div>
                     <div class="post_header_info">
                         <h2 class="post_header_info_text">By: {{ content["user"][0] }}</h2>
@@ -67,7 +68,7 @@
                 {% if blog_type == "forum" %}
                 <div class="post_comment">
                     <div class="post_comment_profile">
-                        <img src="{{ url_for('static', filename='content/profile.png')}}" height="50%" class="profile_picture comment_pfp">
+                        <img src="{{ url_for('static', filename='content/profiles/' + content['profile'] + '.png')}}" height="90vh" class="profile_picture comment_pfp">
                         <h2 class="comment_profile_info">{{ content["user"][0] }}</h2>
                         <h2 class="comment_profile_info">{{ content["user"][2] }}</h2>
                     </div>
@@ -80,13 +81,19 @@
                     {% for comment in comments["comments"] %}
                         <div class="post_comment">
                             <div class="post_comment_profile">
-                                <img src="{{ url_for('static', filename='content/profile.png')}}" height="50%" class="profile_picture comment_pfp">
+                                <img src="{{ url_for('static', filename='content/profiles/' + comment['profile'] + '.png')}}" height="90vh" class="profile_picture comment_pfp">
                                 <h2 class="comment_profile_info">{{ comment["user"][0] }}</h2>
                                 <h2 class="comment_profile_info">{{ comment["user"][2] }}</h2>
                             </div>
-                            <div class="comment_content">
-                                <h2 class="comment_text">{{ comment["content"] }}</h2>
-                            </div>
+                            {% if blog_type == "blog" %}
+                                <div class="comment_content">
+                                    <h2 class="comment_text">{{ comment["content"]|safe }}</h2>
+                                </div>
+                            {% else %}
+                                <div class="comment_content">
+                                    <h2 class="comment_text">{{ comment["content"]|safe }}</h2>
+                                </div>
+                            {% endif %}
                         </div>
                     {% endfor %}
                 {% endif %}

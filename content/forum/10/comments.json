@@ -7,7 +7,8 @@
                 "Seb",
                 "0",
                 "Admin"
-            ]
+            ],
+            "profile": "eagle"
         },
         {
             "content": "Again, I can assure you we will!",
@@ -16,7 +17,8 @@
                 "Seb",
                 "0",
                 "Admin"
-            ]
+            ],
+            "profile": "eagle"
         },
         {
             "content": "Hi!",
@@ -25,7 +27,8 @@
                 "seb123",
                 "9",
                 "Level 3"
-            ]
+            ],
+            "profile": "lion"
         },
         {
             "content": "No\r\n",
@@ -34,7 +37,8 @@
                 "Seb",
                 "0",
                 "Admin"
-            ]
+            ],
+            "profile": "eagle"
         }
     ]
 }

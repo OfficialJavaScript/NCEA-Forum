@@ -1,6 +1,6 @@
 {
     "title": "Guide: How to pass NCEA Level 2",
-    "comment": "REWRITE ME What is NCEA? How do you earn credits? What are Literacy & Numeracy Credits? And many more questions are answered in this guide.",
+    "comment": "What is Level 2? How many credits do you need? How is it different from Level 1? Find the answers in this guide.",
     "id": "2",
     "user": [
         "Seb",
@@ -8,5 +8,6 @@
         "Admin"
     ],
     "images": "",
-    "date": ""
+    "date": "",
+    "profile": "eagle"
 }

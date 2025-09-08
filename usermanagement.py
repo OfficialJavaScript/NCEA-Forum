@@ -60,7 +60,7 @@ def read_user_data(uid):
     with open('database.json', 'r') as database:
         data = json.load(database)
         for account in data["USERS"]:
-            if account ["ID"] == uid:
+            if account["ID"] == uid:
                 return account
             
 def check_verification(uid):
@@ -133,3 +133,6 @@ def username_check(username):
         if character not in characters:
             return True
     return False
+
+def get_pfp(uid):
+    return read_user_data(uid)["PROFILE"]

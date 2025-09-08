@@ -1,6 +1,6 @@
 {
     "title": "Guide - Assessments",
-    "comment": "REWRITE ME What is NCEA? How do you earn credits? What are Literacy & Numeracy Credits? And many more questions are answered in this guide.",
+    "comment": "What are Unit vs Achievement Standards? How do internals and externals work? What about resubmissions? This guide explains it.",
     "id": "5",
     "user": [
         "Seb",
@@ -8,5 +8,6 @@
         "Admin"
     ],
     "images": "",
-    "date": ""
+    "date": "",
+    "profile": "eagle"
 }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NCEA Forum | Search</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/forum.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/search.css') }}">
+        <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+        <link rel="icon" type="images/x-icon" href="{{ url_for('static', filename='content/favicon.ico') }}">
+    </head>
+    <body>
+        {% include 'includes/header.html' %}
+        <div class="container">
+            <div class="search_container">
+                <div class="top_header">
+                    <form class="search_page_form" action="/search">
+                        <input type="search" placeholder="Search" name="query" class="search_page_input" value="{{param}}">
+                    </form>
+                </div>
+                {% for post in search_results %}
+                <div class="search_wrapper">
+                    <div class="post_info">
+                        <div class="post_top">
+                            {% if post["type"] != 'guide_post' %}
+                            <a class="post_title" href="/forum/{{ post['id'] }}"><h2>{{ post["title"] }}</h2></a>
+                            {% else %}
+                            <a class="post_title" href="/guide/{{ post['id'] }}"><h2>{{ post["title"] }}</h2></a>
+                            {% endif %}
+                        </div>
+                        <div class="post_bottom">
+                            {% if post["type"] != 'guide_post' %}
+                            <h2 class="post_user">By {{ post["user"][0] }} | {{ post["date"] }}</h2>
+                            {% else %}
+                            <h2 class="post_user">By {{ post["user"][0] }}</h2>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% if post["type"] != 'guide_post' %}
+                    <div class="post_total_comments">
+                        <h2 class="post_total_comment">Replies: {{ post["comments"] }}</h2>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                {% if result_length < 7 %}
+                    <hr>
+                {% endif %}
+            </div>
+        </div>
+        {% include 'includes/footer.html' %}
+    </body>
+</html>

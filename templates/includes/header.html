@@ -3,13 +3,13 @@
         <div class="header_top">
             <h1 class="school_name">HERETAUNGA COLLEGE</h1> 
             <img class="header_image" src="{{ url_for('static', filename='content/header.png') }}">
-            <form class="search_form" method="post" action="/bread">
-                <input type="search" placeholder="Search"  class="search_input">
+            <form class="search_form" action="/search">
+                <input type="search" placeholder="Search" name="query" class="search_input">
             </form>
         </div>
         <div class="nav_bar">
             <ul>
-                <button class="nav_buttons nav_home" onclick="home()">Home</button>
+                <button class="nav_buttons nav_home nav_hovers" onclick="home()">Home</button>
                 <li class="dropdown_button_list">
                     <button class="nav_buttons">Level 1</button>
                     <ul class="dropdown">
@@ -37,11 +37,11 @@
                         <li><button class="nav_buttons_list dropdown_button" onclick="endorsements()">Endorsements</button></li>
                         <li><button class="nav_buttons_list dropdown_button" onclick="tipsandtricks()">Tips & Tricks</button></li>
                         <li><button class="nav_buttons_list dropdown_button" onclick="rules()">Rules</button></li>
-                        <li><button class="nav_buttons_list dropdown_button" onclick="home()">Exams (userful links on page)</button></li>
                         <li><button class="nav_buttons_list dropdown_button" onclick="faq()">FAQ</button></li>
+                        <li><button class="nav_buttons_list dropdown_button" onclick="extras()">Extras</button></li>
                     </ul>
                 </li>
-                <button class="nav_buttons" onclick="forum()">Forum</button>
+                <button class="nav_buttons nav_hovers" onclick="forum()">Forum</button>
                 {% if current_user.is_authenticated %}
                     <button class="nav_buttons nav_account nav_logout" onclick="logout()">Log Out</button>
                 {% else %}

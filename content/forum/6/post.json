@@ -1,5 +1,6 @@
 {
     "comment": "THis is a test post for ncea.",
+    "date": "01-07-2025",
     "id": 6,
     "title": "Test NCEA Post",
     "topic": [
@@ -12,5 +13,6 @@
     ],
     "followers": [
         
-    ]
+    ],
+    "profile": "eagle"
 }

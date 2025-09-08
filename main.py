@@ -4,7 +4,7 @@ from flask_login import current_user
 from post_management import *
 from mailer import *
 from datetime import date
-import flask_login, argon2, usermanagement, os, threading
+import flask_login, argon2, usermanagement, os, threading, random, ssl
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(32).hex()
@@ -13,6 +13,7 @@ password_hasher = argon2.PasswordHasher()
 ROLES = ["1", "2", "3", "4", "5"]
 ROLE_NAME = ["Level 1", "Level 2", "Level 3", "Past Student", "Educator"]
 TOPICS = ['levelone', 'leveltwo', 'levelthree', 'caas', 'endorsement', 'exams', 'extensions', 'external', 'internal', 'nceaportal', 'plagiarism', 'schoolleavers', 'sickness', 'tipsandtricks']
+PROFILES = ['alligator', 'cat', 'cat2', 'eagle', 'lion', 'lizard', 'wolf', 'turkey']
 
 class User(flask_login.UserMixin):
     def __init__(self):
@@ -106,11 +107,7 @@ def signup():
         user_id = str(usermanagement.create_user_id())
         code = usermanagement.create_code()
         domain = request.host_url
-        
-        verify_email(email, username, user_id, "New Account", code, domain)
-        
         verify_account = threading.Thread(target=verify_email, args=(email, username, user_id, "New Account", code, domain))
-        
         verify_account.start()
         user = {
             "EMAIL": email,
@@ -118,7 +115,7 @@ def signup():
             "ID": user_id,
             "PASSWORD": password_hasher.hash(request.form.get("password")),
             "ROLE": user_role,
-            "PROFILE": [False, ""],
+            "PROFILE": PROFILES[random.randint(0, 7)],
             "CONFIRM_STATUS": "Unconfirmed",
             "CONFIRM_CODE": code,
             "LOGIN_COUNT": 0
@@ -209,7 +206,8 @@ def create_post():
                 "id": "",
                 "topic": [f"{request.form.get("topic")}"],
                 "followers": [],
-                "date": current_date.strftime("%d-%m-%Y")
+                "date": current_date.strftime("%d-%m-%Y"),
+                "profile": usermanagement.get_pfp(current_user.id)
             }
             write_post(post_info)
             return redirect('/forum')
@@ -249,7 +247,8 @@ def post_reply(post_type, id):
                 add_comment(id, "forum", {
                     "user": [current_user.username, current_user.id, usermanagement.role(current_user.id)],
                     "content": request.form.get("comment"),
-                    "date": ""
+                    "date": "",
+                    "profile": usermanagement.get_pfp(current_user.id)
                 })
                 email_post_follower(id, current_user.username, post_type, request.host_url)
                 if request.referrer:
@@ -294,10 +293,25 @@ def unfollow_post(pid):
 @app.route('/guide/<id>')
 def guide(id):
     content = post_information("guide", id)
-    print(content)
     comments = []
     comments = content[2]
     content = content[1]
     return render_template("forum.html", content=content, comments=comments, blog_type="guide", url=request.base_url)
 
-app.run(host='0.0.0.0', port=80, debug=True)
+
+@app.route('/search', methods=['GET'])
+def search_page(): 
+    param = request.args.get("query")
+    if param == None or param == "":
+        search_results = ""
+        param = ""
+    else:
+        search_results = search(param)
+        search_results = search_content_creator(search_results)
+    return render_template("search.html", search_results=search_results, result_length=len(search_results), param=param)
+
+if __name__ == "__main__":
+    context = ('server.crt', 'server.key')
+    ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER) 
+    ssl_context.load_cert_chain('server.crt', 'server.key')
+    app.run(host='0.0.0.0', port=443, debug=True, ssl_context=context)

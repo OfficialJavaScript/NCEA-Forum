@@ -5,12 +5,9 @@
             "CONFIRM_STATUS": "Confirmed",
             "EMAIL": "sebastian.johnstone@heretaunga.school.nz",
             "ID": "0",
-            "LOGIN_COUNT": 1,
+            "LOGIN_COUNT": 7,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$dtvjF/Nimm1NU51H3VdhtQ$lWkrs3nxB1hvKE/wmPNbqYWDIEJFfOfIUK86AT5IXi4",
-            "PROFILE": [
-                false,
-                ""
-            ],
+            "PROFILE": "eagle",
             "ROLE": "Admin",
             "USERNAME": "Seb"
         },
@@ -21,10 +18,7 @@
             "ID": "1",
             "LOGIN_COUNT": 0,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$dtvjF/Nimm1NU51H3VdhtQ$lWkrs3nxB1hvKE/wmPNbqYWDIEJFfOfIUK86AT5IXi4",
-            "PROFILE": [
-                false,
-                ""
-            ],
+            "PROFILE": "eagle",
             "ROLE": "",
             "USERNAME": "Steve"
         },
@@ -35,10 +29,7 @@
             "ID": "2",
             "LOGIN_COUNT": 0,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$xRSqAq2gbRHkz3VJe/QxTg$wG4ikvmJxaAKhZ85jRigVvLfEX2eWMM4XcwIuHyQhaQ",
-            "PROFILE": [
-                false,
-                ""
-            ],
+            "PROFILE": "turkey",
             "ROLE": null,
             "USERNAME": "$@#&^#!*&iamdheeren"
         },
@@ -49,10 +40,7 @@
             "ID": "3",
             "LOGIN_COUNT": 0,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$iYazNW3EPn9WzWe75Db+8w$DkVBvoIjFqQrt2kjQcA28hG4cyI/04WTtiHqpT95LtQ",
-            "PROFILE": [
-                false,
-                ""
-            ],
+            "PROFILE": "cat2",
             "ROLE": "Past Student",
             "USERNAME": "1"
         },
@@ -63,10 +51,7 @@
             "ID": "4",
             "LOGIN_COUNT": 0,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$Eo/aXJh5272pxcYSbjUIog$GXobzVRn013of3xtyoeeC65KV48w+NZbsmPb/A7Ety4",
-            "PROFILE": [
-                false,
-                ""
-            ],
+            "PROFILE": "wolf",
             "ROLE": "Level 3",
             "USERNAME": "Sebastian Johnstone"
         },
@@ -77,10 +62,7 @@
             "ID": "5",
             "LOGIN_COUNT": 0,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$P93RK9l5QR8V2spYSkSJFA$XIOvbjNXF/e4m5UMJjEc0Fvv7ykhBCLwHFdpGJ3pJx0",
-            "PROFILE": [
-                false,
-                ""
-            ],
+            "PROFILE": "alligator",
             "ROLE": "Level 3",
             "USERNAME": "sebjohnstone"
         },
@@ -91,10 +73,7 @@
             "ID": "6",
             "LOGIN_COUNT": 3,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$I1dc64g8Qj7OYnfURxmBRg$Mb3T5RSnDBexyfFmIiqqjpdoU6tYCkhogLDPQjDOw/Y",
-            "PROFILE": [
-                false,
-                ""
-            ],
+            "PROFILE": "turkey",
             "ROLE": "Level 2",
             "USERNAME": "Dheeren Chowdary Nouthalapati"
         },
@@ -105,10 +84,7 @@
             "ID": "7",
             "LOGIN_COUNT": 1,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$5oW+gKbS9AiUZszEnCcrYw$FS5uAF5C1AqaxgU4e8COREHSfQYJ6vGDezah+9XCJ4c",
-            "PROFILE": [
-                false,
-                ""
-            ],
+            "PROFILE": "lion",
             "ROLE": "Level 3",
             "USERNAME": "Leotar"
         },
@@ -119,10 +95,7 @@
             "ID": "8",
             "LOGIN_COUNT": 1,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$BgHOIk9HVWAR1sSWuWEvGQ$wvSzNCrJv5U9w+iKE7GrKx0es+jct3nAklouSlKPoAY",
-            "PROFILE": [
-                false,
-                ""
-            ],
+            "PROFILE": "alligator",
             "ROLE": "Level 3",
             "USERNAME": "sebastianjohnstone"
         },
@@ -133,10 +106,7 @@
             "ID": "9",
             "LOGIN_COUNT": 2,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$dtvjF/Nimm1NU51H3VdhtQ$lWkrs3nxB1hvKE/wmPNbqYWDIEJFfOfIUK86AT5IXi4",
-            "PROFILE": [
-                false,
-                ""
-            ],
+            "PROFILE": "lion",
             "ROLE": "Level 3",
             "USERNAME": "seb123"
         },
@@ -147,24 +117,18 @@
             "ID": "10",
             "LOGIN_COUNT": 1,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$YW44PTbuJ9xIRCSzvTuQNQ$6wwnt3J2IQuY6UtnRmiqefMtDykMIVy1Ns0WwXviOqU",
-            "PROFILE": [
-                false,
-                ""
-            ],
+            "PROFILE": "lion",
             "ROLE": "Educator",
             "USERNAME": "dheeren.nouthalapati@heretaunga.school.nz"
         },
         {
             "CONFIRM_CODE": "",
             "CONFIRM_STATUS": "Confirmed",
-            "EMAIL": "heretaungacollegeforum@gmail.com",
+            "EMAIL": "gmail@gmail.com",
             "ID": "11",
             "LOGIN_COUNT": 1,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$rlaFqbORScA3NC/2F8FLvQ$1Ee359oqJy16ywCkwciODSGEsphX/CyVZr2Yj15Bwcs",
-            "PROFILE": [
-                false,
-                ""
-            ],
+            "PROFILE": "lizard",
             "ROLE": "Level 1",
             "USERNAME": "heretaunga_college"
         },
@@ -175,10 +139,7 @@
             "ID": "12",
             "LOGIN_COUNT": 1,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$lGn9pU9DFZCeUljb2t/E5g$YhLct1LMZj6skIm8V05krVZ0GlmZCnogAD4S90HPWgg",
-            "PROFILE": [
-                false,
-                ""
-            ],
+            "PROFILE": "eagle",
             "ROLE": "Past Student",
             "USERNAME": "GOOGOO"
         },
@@ -189,10 +150,7 @@
             "ID": "13",
             "LOGIN_COUNT": 0,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$YUvPaac00dTZ0vySdS2r5g$o25b1ZcOa3yj+o2J99Ihgr+87QL57qcQhL+g22l4Lh4",
-            "PROFILE": [
-                false,
-                ""
-            ],
+            "PROFILE": "cat",
             "ROLE": "Past Student",
             "USERNAME": "imgood"
         },
@@ -203,10 +161,7 @@
             "ID": "14",
             "LOGIN_COUNT": 0,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$H281YY7dJAkQReW6EV9ijw$nuAiZNm7LkcRXPL8Si+GkF33Bap2tzojo5ySPwcn2UQ",
-            "PROFILE": [
-                false,
-                ""
-            ],
+            "PROFILE": "turkey",
             "ROLE": "Past Student",
             "USERNAME": "majavi9241"
         },
@@ -217,10 +172,7 @@
             "ID": "15",
             "LOGIN_COUNT": 4,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$73NS5zof5XKpT11OlSBqfA$o47xqx6GKYiyCrhZon0ZO9r5fmJJb2OtEYvwnS4NCW4",
-            "PROFILE": [
-                false,
-                ""
-            ],
+            "PROFILE": "cat",
             "ROLE": "Educator",
             "USERNAME": "Seb_2"
         },
@@ -231,12 +183,75 @@
             "ID": "16",
             "LOGIN_COUNT": 1,
             "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$duee9TkZ+REEoey6Vgls9w$t/fIWU+RP5T5Vq+FvK6/vjN/L/CI0s2yHz53tR18DkQ",
-            "PROFILE": [
-                false,
-                ""
-            ],
+            "PROFILE": "wolf",
             "ROLE": "Level 3",
             "USERNAME": "SourStew47"
+        },
+        {
+            "CONFIRM_CODE": "",
+            "CONFIRM_STATUS": "Confirmed",
+            "EMAIL": "vatadel227@futurejs.com",
+            "ID": "17",
+            "LOGIN_COUNT": 1,
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$lZKDN/mx5IL66yM5cCE+Hw$oooh3Is0JreAg4owcHuTxnGu0DUb4VLEY/RR5imVnuA",
+            "PROFILE": "cat",
+            "ROLE": "Level 1",
+            "USERNAME": "a"
+        },
+        {
+            "CONFIRM_CODE": "",
+            "CONFIRM_STATUS": "Confirmed",
+            "EMAIL": "gixoho4887@noidem.com",
+            "ID": "18",
+            "LOGIN_COUNT": 1,
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$4YQhOMZsJkcGdIr/DyiXMg$iAtasIUVNkW0HUNxdFqtc0fIci5p4OqnAEtxGqJOX+E",
+            "PROFILE": "wolf",
+            "ROLE": "Level 2",
+            "USERNAME": "b"
+        },
+        {
+            "CONFIRM_CODE": "",
+            "CONFIRM_STATUS": "Confirmed",
+            "EMAIL": "xadihov391@mogash.com",
+            "ID": "19",
+            "LOGIN_COUNT": 2,
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$cXklVrJx7GvFBCqmct+7cw$VgN75g3GlVWMAN5z3CZ5mBPgSw04azWjYoxDPTLgCQg",
+            "PROFILE": "cat2",
+            "ROLE": "Educator",
+            "USERNAME": "c"
+        },
+        {
+            "CONFIRM_CODE": "",
+            "CONFIRM_STATUS": "Confirmed",
+            "EMAIL": "heretaungacollegeforum@gmail.com",
+            "ID": "20",
+            "LOGIN_COUNT": 1,
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$8lWDnGg+5FEcYY5npGuL6g$5ZQeZPmKIgFSPd5nDeXQ58ncDXvxktj10XQO+seCxuw",
+            "PROFILE": "lizard",
+            "ROLE": "Educator",
+            "USERNAME": "HeretaungaCollege"
+        },
+        {
+            "CONFIRM_CODE": "",
+            "CONFIRM_STATUS": "Confirmed",
+            "EMAIL": "meveb77222@dpwev.com",
+            "ID": "21",
+            "LOGIN_COUNT": 2,
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$Hl4rF80/dFfChoGJyI4Gqg$s3yTtOvE2y9+CLLv9g33iyK0XEgOycbtD8ei0kvacNg",
+            "PROFILE": "wolf",
+            "ROLE": "Level 1",
+            "USERNAME": "meveb77222"
+        },
+        {
+            "CONFIRM_CODE": "",
+            "CONFIRM_STATUS": "Confirmed",
+            "EMAIL": "yosinaw733@cspaus.com",
+            "ID": "22",
+            "LOGIN_COUNT": 2,
+            "PASSWORD": "$argon2id$v=19$m=65536,t=3,p=4$GmuGIw5zJ1xi/9+i3VRaDw$HvKpn/E9trxfwk42gjzS09ph0ZLPDgvlzql07rxwG4M",
+            "PROFILE": "lion",
+            "ROLE": "Educator",
+            "USERNAME": "yosinaw733"
         }
     ]
 }

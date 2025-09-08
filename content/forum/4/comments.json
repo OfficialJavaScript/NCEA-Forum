@@ -3,6 +3,7 @@
         {
             "content": "maybe?",
             "date": "",
+            "profile": "eagle",
             "user": [
                 "Seb",
                 "0",
@@ -12,6 +13,7 @@
         {
             "content": "Yes!",
             "date": "",
+            "profile": "eagle",
             "user": [
                 "Seb",
                 "0",
@@ -21,6 +23,37 @@
         {
             "content": "Hello! \ud83d\udc80",
             "date": "",
+            "profile": "eagle",
+            "user": [
+                "Seb",
+                "0",
+                "Admin"
+            ]
+        },
+        {
+            "content": "Test",
+            "date": "",
+            "profile": "eagle",
+            "user": [
+                "Seb",
+                "0",
+                "Admin"
+            ]
+        },
+        {
+            "content": "Real",
+            "date": "",
+            "profile": "cat2",
+            "user": [
+                "c",
+                "19",
+                "Educator"
+            ]
+        },
+        {
+            "content": "Yeah",
+            "date": "",
+            "profile": "eagle",
             "user": [
                 "Seb",
                 "0",

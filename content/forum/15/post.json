@@ -1,15 +1,21 @@
 {
-    "comment": "This is a post about the current date.",
-    "date": "19-08-2025",
-    "followers": [],
+    "comment": "As the title says, I am wondering how do I get university entrance?",
+    "date": "05-09-2025",
+    "followers": [
+        [
+            "HeretaungaCollege",
+            "heretaungacollegeforum@gmail.com"
+        ]
+    ],
     "id": 15,
-    "title": "Post about the current date.",
+    "profile": "lizard",
+    "title": "How do I get University Entrance?",
     "topic": [
-        "caas"
+        "levelthree"
     ],
     "user": [
-        "Seb",
-        "0",
-        "Admin"
+        "HeretaungaCollege",
+        "20",
+        "Educator"
     ]
 }

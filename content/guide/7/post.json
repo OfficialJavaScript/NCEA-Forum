@@ -1,6 +1,6 @@
 {
-    "title": "Guide - Emdorsement",
-    "comment": "REWRITE ME What is NCEA? How do you earn credits? What are Literacy & Numeracy Credits? And many more questions are answered in this guide.",
+    "title": "Guide - Endorsement",
+    "comment": "What are endorsements? How do you get them at Merit or Excellence? And why do they matter for uni or jobs? This guide explains it.",
     "id": "7",
     "user": [
         "Seb",
@@ -8,5 +8,6 @@
         "Admin"
     ],
     "images": "",
-    "date": ""
+    "date": "",
+    "profile": "eagle"
 }

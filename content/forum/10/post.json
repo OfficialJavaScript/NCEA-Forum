@@ -1,5 +1,6 @@
 {
     "comment": "I hope so. Do some studying!",
+    "date": "01-07-2025",
     "id": 10,
     "title": "Are we passing the year?",
     "topic": [
@@ -12,5 +13,6 @@
     ],
     "followers": [
         ["Seb", "sebastian.johnstone@heretaunga.school.nz"]
-    ]
+    ],
+    "profile": "lion"
 }

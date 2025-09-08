@@ -19,9 +19,7 @@ def write_post(post_information_var):
     for item in FORUM_FOLDER.iterdir():
         if item.is_dir():
             post_list.append(int(str(item).replace('content\\forum\\', ""))) 
-        print(post_list)
     post_list.sort()
-    print(post_list)
     pid = post_list[-1] + 1
     folder = Path(f"content/forum/{pid}")
     folder.mkdir()
@@ -122,3 +120,61 @@ def remove_post_follow(pid, username, email):
             json.dump(post_info, post_file, sort_keys=True, indent=4)
             post_file.truncate()
             post_file.close()
+            
+def retrieve_database_list():
+    forum_post_list = []
+    for item in FORUM_FOLDER.iterdir():
+        if item.is_dir():
+            forum_post_list.append(int(str(item).replace('content\\forum\\', ""))) 
+    guide_post_list = []
+    for item in GUIDE_FOLDER.iterdir():
+        if item.is_dir():
+            guide_post_list.append(int(str(item).replace('content\\guide\\', ""))) 
+    forum_post_list.sort()
+    guide_post_list.sort()
+    return {
+        "forum_post_list": forum_post_list,
+        "guide_post_list": guide_post_list
+    }
+
+def compile_database(database_list):
+    data = {
+        "forum_post_data": [],
+        "guide_post_data": []
+    }
+    for post in database_list["forum_post_list"]:
+        info = load_post(post)
+        data["forum_post_data"].append(info)
+    for post in database_list["guide_post_list"]:
+        info = post_information("guide", post)
+        data["guide_post_data"].append([info[1], info[2]])
+    return data
+
+def search(query):
+    database = compile_database(retrieve_database_list())
+    posts = {
+        "forum_posts": [],
+        "guide_posts": []
+    }
+    for data in database["forum_post_data"]:
+        if query.lower() in data["comment"].lower() or query.lower() in data["title"].lower():
+            posts["forum_posts"].append(data["id"])
+    for data in database["guide_post_data"]:
+        if query.lower() in data[0]["comment"].lower() or query.lower() in data[0]["title"].lower() or query.lower() in data[1]["comments"][0]["content"].lower():
+            posts["guide_posts"].append(data[0]["id"])
+    return posts
+
+
+def search_content_creator(search_results):
+    posts = []
+    for post in search_results["guide_posts"]:
+        post_data = load_guide(post)
+        post_data["type"] = "guide_post"
+        posts.append(post_data)
+        
+    for post in search_results["forum_posts"]:
+        post_data = load_post(post)
+        post_data["comments"] = len(load_comments(post_data["id"])["comments"])
+        post_data["type"] = "forum_post"
+        posts.append(post_data)   
+    return posts

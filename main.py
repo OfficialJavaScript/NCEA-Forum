@@ -314,4 +314,5 @@ if __name__ == "__main__":
     context = ('server.crt', 'server.key')
     ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER) 
     ssl_context.load_cert_chain('server.crt', 'server.key')
-    app.run(host='0.0.0.0', port=443, debug=True, ssl_context=context)
+
+    app.run(host='0.0.0.0', port=443, debug=False, ssl_context=context)
